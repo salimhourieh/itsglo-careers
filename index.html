@@ -440,14 +440,13 @@
     </div>
   </div>
 
-  <!-- ── STEP 8: QUALITY & RELIABILITY SCENARIOS ── -->
+  <!-- ── STEP 8: SCENARIO 1 — SICK DAY ── -->
   <div class="step" id="step-8">
     <div class="card">
       <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
       <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
       <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
 
-      <!-- Scenario 1: Sick day -->
       <div class="input-group">
         <label data-t="s1_label"><strong>1.</strong> You wake up feeling unwell on a workday. What do you do?</label>
         <div class="options-grid cols-1" style="margin-top:8px;" id="q-s1">
@@ -457,29 +456,46 @@
         </div>
       </div>
 
-      <!-- Scenario 2: Client complaint -->
-      <div class="input-group" style="margin-top:4px;">
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkScenario('s1')" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 9: SCENARIO 2 — CLIENT COMPLAINT ── -->
+  <div class="step" id="step-9">
+    <div class="card">
+      <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
+      <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
+      <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
+
+      <div class="input-group">
         <label data-t="s2_label"><strong>2.</strong> A client messages saying the bathroom wasn't cleaned properly. What do you do?</label>
         <div class="options-grid cols-1" style="margin-top:8px;" id="q-s2">
           <button class="opt-btn" onclick="selectOption('s2','apologize-fix',this)"><span class="check"></span><span data-t="s2a">I apologize, ask for specifics, and tell my supervisor right away</span></button>
           <button class="opt-btn" onclick="selectOption('s2','defend',this)"><span class="check"> </span><span data-t="s2b">I explain that I did clean it thoroughly</span></button>
           <button class="opt-btn" onclick="selectOption('s2','ignore',this)"><span class="check"> </span><span data-t="s2c">I let my supervisor handle it</span></button>
+          <button class="opt-btn" onclick="selectOption('s2','inform-manager',this)"><span class="check"> </span><span data-t="s2d">I don't respond to the client, but I inform my manager right away — they can handle it better, and I use it as a learning moment</span></button>
         </div>
       </div>
 
-      <!-- Scenario 3: Extra hours -->
-      <div class="input-group" style="margin-top:4px;">
-        <label data-t="s3_label"><strong>3.</strong> A coworker calls in sick and your supervisor asks if you can take their clean today on short notice. What do you say?</label>
-        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s3">
-          <button class="opt-btn" onclick="selectOption('s3','yes-always',this)"><span class="check"></span><span data-t="s3a">Yes — I'm happy to help if I'm free</span></button>
-          <button class="opt-btn" onclick="selectOption('s3','depends',this)"><span class="check"> </span><span data-t="s3b">Depends on my personal situation that day</span></button>
-          <button class="opt-btn" onclick="selectOption('s3','no',this)"><span class="check"> </span><span data-t="s3c">I usually can't take on extra work on short notice</span></button>
-        </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkScenario('s2')" data-t="continue">Continue</button>
       </div>
+    </div>
+  </div>
 
-      <!-- Scenario 4: Feedback -->
-      <div class="input-group" style="margin-top:4px;">
-        <label data-t="s4_label"><strong>4.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?</label>
+  <!-- ── STEP 10: SCENARIO 3 — FEEDBACK ── -->
+  <div class="step" id="step-10">
+    <div class="card">
+      <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
+      <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
+      <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
+
+      <div class="input-group">
+        <label data-t="s4_label"><strong>3.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?</label>
         <div class="options-grid cols-1" style="margin-top:8px;" id="q-s4">
           <button class="opt-btn" onclick="selectOption('s4','redo-learn',this)"><span class="check"></span><span data-t="s4a">I redo it, and ask what I can do differently next time</span></button>
           <button class="opt-btn" onclick="selectOption('s4','redo-quiet',this)"><span class="check"> </span><span data-t="s4b">I redo it without saying anything</span></button>
@@ -489,13 +505,13 @@
 
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-next" onclick="nextStep()" data-t="continue">Continue</button>
+        <button class="btn-next" onclick="checkScenario('s4')" data-t="continue">Continue</button>
       </div>
     </div>
   </div>
 
-  <!-- ── STEP 9: ABOUT YOU (open questions) ── -->
-  <div class="step" id="step-9">
+  <!-- ── STEP 11: ABOUT YOU ── -->
+  <div class="step" id="step-11">
     <div class="card">
       <div class="section-chip">⭐ <span data-t="about_chip">About You</span></div>
       <div class="q-label" data-t="about_q">A few more questions to get to know you</div>
@@ -515,11 +531,6 @@
           <button class="scale-btn" onclick="setScale('detail',5,this)">5</button>
         </div>
         <input type="text" id="detail-example" style="margin-top:10px;" placeholder="Give a quick example of why you chose that number..." />
-      </div>
-
-      <div class="input-group">
-        <label data-t="reliable_label">What does a great workday look like to you?</label>
-        <textarea id="great-day" placeholder=""></textarea>
       </div>
 
       <div class="input-group">
@@ -544,8 +555,8 @@
     </div>
   </div>
 
-  <!-- ── STEP 10: FAQ + SUBMIT ── -->
-  <div class="step" id="step-10">
+  <!-- ── STEP 12: FAQ + SUBMIT ── -->
+  <div class="step" id="step-12">
     <div class="card">
       <div class="section-chip">❓ <span data-t="faq_chip">Common Questions</span></div>
       <div class="q-label" data-t="faq_q">Before you submit — things people often ask</div>
@@ -619,8 +630,8 @@ const answers = {
   expType:'', expCompany:'', expCanada:'', expDuration:'',
   days:[], flexibility:'',
   fullName:'', phone:'', email:'', area:'', languages:'',
-  s1:'', s2:'', s3:'', s4:'',
-  threeWords:'', detailScale:'', detailExample:'', greatDay:'',
+  s1:'', s2:'', s4:'',
+  threeWords:'', detailScale:'', detailExample:'',
   hours:'', reliabilityNote:'',
   extraNotes:'', ethnicity:'',
   scheduleNote:''
@@ -701,11 +712,8 @@ const T = {
     s2a:'I apologize, ask for specifics, and tell my supervisor right away',
     s2b:'I explain that I did clean it thoroughly',
     s2c:'I let my supervisor handle it',
-    s3_label:"<strong>3.</strong> A coworker calls in sick and your supervisor asks if you can take their clean today on short notice. What do you say?",
-    s3a:"Yes — I'm happy to help if I'm free",
-    s3b:'Depends on my personal situation that day',
-    s3c:"I usually can't take on extra work on short notice",
-    s4_label:'<strong>4.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?',
+    s2d:"I don't respond to the client, but I inform my manager right away — they can handle it better, and I use it as a learning moment",
+    s4_label:'<strong>3.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?',
     s4a:'I redo it, and ask what I can do differently next time',
     s4b:'I redo it without saying anything',
     s4c:"I'd explain why I thought it was already done right",
@@ -735,7 +743,7 @@ const T = {
     ns2:'If shortlisted, we\'ll contact you by phone or email',
     ns3:'Next step: an in-person evaluation to see how you clean',
     ns4:'If the evaluation goes well, we move forward together',
-    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','How you work','About you','Final review'],
+    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','Scenario 1','Scenario 2','Scenario 3','About you','Final review'],
   },
   es: {
     about_role:'Sobre el Trabajo', job_title:'Así es exactamente este trabajo',
@@ -808,11 +816,8 @@ const T = {
     s2a:'Me disculpo, pido detalles y aviso a mi supervisor de inmediato',
     s2b:'Explico que sí lo limpié bien',
     s2c:'Dejo que mi supervisor lo maneje',
-    s3_label:'<strong>3.</strong> Un compañero se enferma y tu supervisor te pide que hagas su limpieza hoy con poco aviso. ¿Qué dices?',
-    s3a:'Sí — con gusto ayudo si estoy libre',
-    s3b:'Depende de mi situación personal ese día',
-    s3c:'Generalmente no puedo tomar trabajo extra con poco aviso',
-    s4_label:'<strong>4.</strong> Tu supervisor te pide que rehaga algo que ya creías haber hecho bien. ¿Cómo reaccionas?',
+    s2d:'No le respondo al cliente, pero aviso a mi gerente de inmediato — ellos pueden manejarlo mejor, y lo uso como aprendizaje',
+    s4_label:'<strong>3.</strong> Tu supervisor te pide que rehaga algo que ya creías haber hecho bien. ¿Cómo reaccionas?',
     s4a:'Lo rehago y pregunto qué puedo hacer diferente la próxima vez',
     s4b:'Lo rehago sin decir nada',
     s4c:'Explicaría por qué pensaba que ya estaba bien hecho',
@@ -842,7 +847,7 @@ const T = {
     ns2:'Si eres preseleccionado/a, te contactaremos por teléfono o correo',
     ns3:'Siguiente paso: una evaluación en persona para ver cómo limpias',
     ns4:'Si la evaluación va bien, avanzamos juntos',
-    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Cómo trabajas','Sobre ti','Revisión final'],
+    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Escenario 1','Escenario 2','Escenario 3','Sobre ti','Revisión final'],
   }
 };
 
@@ -891,8 +896,8 @@ function prevStep() {
 }
 
 function updateProgress() {
-  const stepNum = typeof currentStep === 'number' ? currentStep : 10;
-  const pct = Math.min(100, Math.round((stepNum / 10) * 100));
+  const stepNum = typeof currentStep === 'number' ? currentStep : 12;
+  const pct = Math.min(100, Math.round((stepNum / 12) * 100));
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-pct').textContent = pct + '%';
   const labels = t('progress_labels');
@@ -986,6 +991,11 @@ function showSorry(reason) {
   goToStep('sorry');
 }
 
+function checkScenario(key) {
+  if (!answers[key]) return;
+  nextStep();
+}
+
 function checkDays() {
   if (answers.days.length < 5) {
     document.getElementById('days-warn').style.display = 'block';
@@ -1059,7 +1069,6 @@ function toggleFaq(i) {
 async function submitForm() {
   answers.threeWords     = document.getElementById('three-words').value.trim();
   answers.detailExample  = document.getElementById('detail-example').value.trim();
-  answers.greatDay       = document.getElementById('great-day').value.trim();
   answers.reliabilityNote= document.getElementById('reliability-note').value.trim();
   answers.extraNotes     = document.getElementById('extra-notes').value.trim();
   answers.ethnicity      = document.getElementById('ethnicity').value.trim();
@@ -1067,7 +1076,6 @@ async function submitForm() {
   answers.expDuration    = document.getElementById('exp-duration') ? document.getElementById('exp-duration').value.trim() : '';
   answers.visaType       = document.getElementById('visa-type') ? document.getElementById('visa-type').value : '';
 
-  // ── REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ──
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0VH69vEuimtgQlrMWkvBS6NjpdhcGvmZhGNy1a21pzXRQ9NEfBTwDKwN_eydQ8wkGdQ/exec';
 
   const btn = document.querySelector('.btn-submit');
@@ -1095,28 +1103,22 @@ async function submitForm() {
     hoursPerWeek:    answers.hours,
     s1_sickDay:      answers.s1,
     s2_clientComplaint: answers.s2,
-    s3_coverShift:   answers.s3,
-    s4_feedback:     answers.s4,
+    s3_feedback:     answers.s4,
     threeWords:      answers.threeWords,
     detailScale:     answers.detailScale,
     detailExample:   answers.detailExample,
-    greatDay:        answers.greatDay,
     reliabilityNote: answers.reliabilityNote,
     extraNotes:      answers.extraNotes,
     ethnicity:       answers.ethnicity,
   };
 
-  if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method:'POST', mode:'no-cors',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(payload)
-      });
-    } catch(e) { console.error('Submission error:', e); }
-  } else {
-    console.log('DEV MODE — submission payload:', payload);
-  }
+  try {
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+  } catch(e) { console.error('Submission error:', e); }
 
   goToStep('thanks');
 }
