@@ -432,6 +432,18 @@
         <label data-t="lang_spoken_label">What languages do you speak?</label>
         <input type="text" id="languages" placeholder="e.g. English, Spanish, Portuguese, Tagalog" />
       </div>
+      <div class="input-group">
+        <label data-t="gender_label">Gender <span class="required">*</span></label>
+        <select id="gender" onchange="answers.gender=this.value">
+          <option value="" data-t="select_opt">— Select —</option>
+          <option value="woman" data-t="gender_woman">Woman</option>
+          <option value="man" data-t="gender_man">Man</option>
+          <option value="non-binary" data-t="gender_nonbinary">Non-binary</option>
+          <option value="self-describe" data-t="gender_self">Prefer to self-describe</option>
+          <option value="not-disclose" data-t="gender_notdisclose">Wish not to disclose</option>
+        </select>
+        <div class="error-msg" id="err-gender" data-t="err_gender">Please select your gender.</div>
+      </div>
 
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
@@ -700,6 +712,10 @@ const T = {
     name_label:'Full Name', phone_label:'Phone Number', email_label:'Email Address',
     area_label:'Which area of Toronto do you live in?',
     lang_spoken_label:'What languages do you speak?',
+    gender_label:'Gender',
+    gender_woman:'Woman', gender_man:'Man', gender_nonbinary:'Non-binary',
+    gender_self:'Prefer to self-describe', gender_notdisclose:'Wish not to disclose',
+    err_gender:'Please select your gender.',
     err_name:'Please enter your full name.', err_phone:'Please enter your phone number.',
     err_email:'Please enter a valid email address.', err_area:'Please select your area.',
     scenarios_chip:'How You Work',
@@ -805,6 +821,10 @@ const T = {
     name_label:'Nombre Completo', phone_label:'Número de Teléfono', email_label:'Correo Electrónico',
     area_label:'¿En qué zona de Toronto vives?',
     lang_spoken_label:'¿Qué idiomas hablas?',
+    gender_label:'Género',
+    gender_woman:'Mujer', gender_man:'Hombre', gender_nonbinary:'No binario',
+    gender_self:'Prefiero autodescribirme', gender_notdisclose:'Prefiero no indicarlo',
+    err_gender:'Por favor selecciona tu género.',
     err_name:'Por favor ingresa tu nombre completo.', err_phone:'Por favor ingresa tu teléfono.',
     err_email:'Por favor ingresa un correo válido.', err_area:'Por favor selecciona tu zona.',
     scenarios_chip:'Cómo Trabajas',
@@ -1012,20 +1032,23 @@ function checkDays() {
 // ═══════════════════════════════════════════
 function validatePersonal() {
   let ok = true;
-  const name  = document.getElementById('full-name').value.trim();
-  const phone = document.getElementById('phone').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const area  = document.getElementById('area').value;
+  const name   = document.getElementById('full-name').value.trim();
+  const phone  = document.getElementById('phone').value.trim();
+  const email  = document.getElementById('email').value.trim();
+  const area   = document.getElementById('area').value;
+  const gender = document.getElementById('gender').value;
 
   const toggle = (id, show) => document.getElementById(id).classList.toggle('visible', show);
   toggle('err-name',  !name);    if (!name)  ok = false;
   toggle('err-phone', !phone);   if (!phone) ok = false;
   toggle('err-email', !email || !email.includes('@')); if (!email || !email.includes('@')) ok = false;
-  toggle('err-area',  !area);    if (!area)  ok = false;
+  toggle('err-area',   !area);    if (!area)   ok = false;
+  toggle('err-gender', !gender);  if (!gender) ok = false;
 
   if (ok) {
     answers.fullName = name; answers.phone = phone;
     answers.email = email;   answers.area  = area;
+    answers.gender = gender;
     answers.languages = document.getElementById('languages').value.trim();
     nextStep();
   }
@@ -1092,6 +1115,7 @@ async function submitForm() {
     email:           answers.email,
     area:            answers.area,
     languages:       answers.languages,
+    gender:          answers.gender,
     sin:             answers.sin,
     visaType:        answers.visaType,
     physical:        answers.physical,
