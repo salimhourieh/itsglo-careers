@@ -162,7 +162,7 @@
 
 <div class="hero">
   <div class="hero-logo">✦ itsGLO Cleaning</div>
-  <h1>This Isn't a Shift.<br><span>It's a Real Job.</span></h1>
+  <h1 data-t="hero_title">This Isn't a Shift.<br><span>It's a Real Job.</span></h1>
   <p>Most cleaning companies hand you shifts and send you home. At itsGLO, you have a stable full-time role with real training, real systems, and a team that invests in your growth.</p>
   <div class="hero-pills">
     <span class="pill">📍 Toronto, ON</span>
@@ -642,6 +642,7 @@ const answers = {
 // ═══════════════════════════════════════════
 const T = {
   en: {
+    hero_title:"This Isn't a Shift.<br><span>It's a Real Job.</span>",
     about_role:'About the Role', job_title:"Here's exactly what this job looks like",
     job_subtitle:'We believe in full transparency. Read this before applying.',
     sell_title:'A stable job, not random shifts',
@@ -746,6 +747,7 @@ const T = {
     progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','Scenario 1','Scenario 2','Scenario 3','About you','Final review'],
   },
   es: {
+    hero_title:'Esto No Es Un Turno.<br><span>Es Un Trabajo Real.</span>',
     about_role:'Sobre el Trabajo', job_title:'Así es exactamente este trabajo',
     job_subtitle:'Creemos en la transparencia total. Léelo antes de aplicar.',
     sell_title:'Un trabajo estable, no turnos al azar',
@@ -883,7 +885,7 @@ function applyTranslations() {
 function goToStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   const el = document.getElementById('step-' + n);
-  if (el) { el.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  if (el) { el.classList.add('active'); }
   currentStep = n;
   updateProgress();
 }
