@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>itsGLO Cleaning — Join Our Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #00B4A6;
+    --teal-dark: #008F84;
+    --teal-light: #E0F7F5;
+    --gold: #F5A623;
+    --dark: #1A2332;
+    --mid: #3D4F63;
+    --light: #8A9BB0;
+    --bg: #F4F7FA;
+    --white: #FFFFFF;
+    --red: #E8453C;
+    --red-light: #FFF0EF;
+    --green: #22C55E;
+    --card-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); min-height: 100vh; color: var(--dark); overflow-x: hidden; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #243447 60%, #1A3A4A 100%);
+    color: white; padding: 48px 24px 56px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; top:-60px; right:-80px; width:300px; height:300px; background:radial-gradient(circle,rgba(0,180,166,.18) 0%,transparent 70%); border-radius:50%; }
+  .hero::after  { content:''; position:absolute; bottom:-40px; left:-60px; width:240px; height:240px; background:radial-gradient(circle,rgba(245,166,35,.1) 0%,transparent 70%); border-radius:50%; }
+  .hero-logo { font-family:'Sora',sans-serif; font-size:13px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+  .hero h1 { font-family:'Sora',sans-serif; font-size:clamp(26px,6vw,40px); font-weight:700; line-height:1.15; margin-bottom:16px; }
+  .hero h1 span { color:var(--teal); }
+  .hero p { font-size:15px; color:rgba(255,255,255,.75); max-width:500px; margin:0 auto; line-height:1.7; }
+  .hero-pills { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:22px; }
+  .pill { background:rgba(0,180,166,.15); border:1px solid rgba(0,180,166,.3); color:var(--teal); font-size:12px; font-weight:500; padding:6px 14px; border-radius:100px; }
+
+  .progress-wrap { background:white; padding:14px 24px; border-bottom:1px solid #E8EDF2; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.06); }
+  .progress-label { display:flex; justify-content:space-between; font-size:12px; color:var(--light); margin-bottom:8px; font-weight:500; }
+  .progress-bar { height:6px; background:#E8EDF2; border-radius:100px; overflow:hidden; }
+  .progress-fill { height:100%; background:linear-gradient(90deg,var(--teal),var(--gold)); border-radius:100px; transition:width .5s cubic-bezier(.4,0,.2,1); }
+
+  .form-wrap { max-width:640px; margin:0 auto; padding:32px 16px 80px; }
+
+  .step { display:none; animation:fadeUp .35s ease forwards; }
+  .step.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+  .card { background:white; border-radius:var(--radius); padding:32px 28px; box-shadow:var(--card-shadow); }
+
+  .info-banner { background:var(--teal-light); border-left:4px solid var(--teal); border-radius:0 12px 12px 0; padding:16px 20px; margin-bottom:22px; font-size:14px; line-height:1.65; color:var(--mid); }
+  .info-banner .banner-title { font-family:'Sora',sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:1.2px; color:var(--teal); margin-bottom:6px; }
+  .warning-banner { background:#FFF8EC; border-left:4px solid var(--gold); border-radius:0 12px 12px 0; padding:16px 20px; margin-bottom:22px; font-size:14px; color:var(--mid); line-height:1.65; }
+  .sell-banner { background:linear-gradient(135deg,#1A2332 0%,#243447 100%); border-radius:12px; padding:20px 22px; margin-bottom:22px; color:white; }
+  .sell-banner .sell-title { font-family:'Sora',sans-serif; font-size:15px; font-weight:700; color:var(--teal); margin-bottom:8px; }
+  .sell-banner p { font-size:13px; line-height:1.7; color:rgba(255,255,255,.8); }
+
+  .q-label { font-family:'Sora',sans-serif; font-size:18px; font-weight:600; color:var(--dark); margin-bottom:8px; line-height:1.4; }
+  .q-sublabel { font-size:13px; color:var(--light); margin-bottom:20px; line-height:1.55; }
+
+  input[type="text"],input[type="email"],input[type="tel"],textarea,select {
+    width:100%; padding:13px 16px; border:2px solid #E8EDF2; border-radius:10px;
+    font-family:'DM Sans',sans-serif; font-size:15px; color:var(--dark); background:#FAFBFC;
+    transition:border-color .2s,box-shadow .2s; outline:none; appearance:none; -webkit-appearance:none;
+  }
+  input:focus,textarea:focus,select:focus { border-color:var(--teal); box-shadow:0 0 0 4px rgba(0,180,166,.1); background:white; }
+  textarea { resize:vertical; min-height:90px; }
+  .input-group { margin-bottom:18px; }
+  .input-group label { display:block; font-size:13px; font-weight:500; color:var(--mid); margin-bottom:7px; }
+  .required { color:var(--red); }
+
+  .options-grid { display:grid; gap:10px; margin-bottom:4px; }
+  .options-grid.cols-2 { grid-template-columns:1fr 1fr; }
+  .options-grid.cols-1 { grid-template-columns:1fr; }
+
+  .opt-btn { padding:13px 15px; border:2px solid #E8EDF2; border-radius:10px; background:#FAFBFC; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--mid); text-align:left; transition:all .18s ease; display:flex; align-items:center; gap:10px; }
+  .opt-btn:hover { border-color:var(--teal); background:var(--teal-light); color:var(--teal-dark); }
+  .opt-btn.selected { border-color:var(--teal); background:var(--teal-light); color:var(--teal-dark); font-weight:600; }
+  .opt-btn .check { width:20px; height:20px; border-radius:50%; border:2px solid #D0D8E4; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; transition:all .18s; }
+  .opt-btn.selected .check { background:var(--teal); border-color:var(--teal); color:white; }
+  .opt-btn .check-sq { width:20px; height:20px; border-radius:5px; border:2px solid #D0D8E4; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:11px; transition:all .18s; }
+  .opt-btn.selected .check-sq { background:var(--teal); border-color:var(--teal); color:white; }
+
+  /* Day grid */
+  .day-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; margin-bottom:16px; }
+  .day-btn { padding:10px 4px; border:2px solid #E8EDF2; border-radius:10px; background:#FAFBFC; cursor:pointer; font-family:'Sora',sans-serif; font-size:12px; font-weight:600; color:var(--light); text-align:center; transition:all .18s; }
+  .day-btn:hover { border-color:var(--teal); color:var(--teal-dark); }
+  .day-btn.selected { border-color:var(--teal); background:var(--teal-light); color:var(--teal-dark); }
+
+  .lang-btn { padding:22px 18px; border:2px solid #E8EDF2; border-radius:14px; background:white; cursor:pointer; font-family:'Sora',sans-serif; font-weight:600; font-size:18px; color:var(--dark); text-align:center; transition:all .2s ease; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+  .lang-btn:hover { border-color:var(--teal); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,180,166,.15); }
+  .lang-btn .lang-flag { font-size:30px; display:block; margin-bottom:8px; }
+  .lang-btn .lang-sub { font-size:12px; font-weight:400; color:var(--light); margin-top:4px; }
+
+  .nav-row { display:flex; gap:12px; margin-top:26px; align-items:center; }
+  .btn-back { padding:13px 20px; border:2px solid #E8EDF2; border-radius:10px; background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--light); cursor:pointer; transition:all .18s; white-space:nowrap; }
+  .btn-back:hover { border-color:var(--mid); color:var(--mid); }
+  .btn-next { flex:1; padding:15px 24px; border:none; border-radius:10px; background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); color:white; font-family:'Sora',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s; box-shadow:0 4px 14px rgba(0,180,166,.3); }
+  .btn-next:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,180,166,.4); }
+  .btn-submit { flex:1; padding:15px 24px; border:none; border-radius:10px; background:linear-gradient(135deg,var(--gold) 0%,#E8920F 100%); color:white; font-family:'Sora',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s; box-shadow:0 4px 14px rgba(245,166,35,.35); }
+  .btn-submit:hover { transform:translateY(-1px); }
+
+  /* Sorry screen */
+  .sorry-screen { text-align:center; padding:16px 0; }
+  .sorry-icon { font-size:48px; margin-bottom:16px; }
+  .sorry-screen h2 { font-family:'Sora',sans-serif; font-size:21px; font-weight:700; margin-bottom:12px; color:var(--dark); }
+  .sorry-screen p { font-size:14px; color:var(--mid); line-height:1.7; }
+
+  /* Thank you */
+  .thankyou { text-align:center; padding:16px 0; }
+  .thankyou .big-check { width:72px; height:72px; background:linear-gradient(135deg,var(--teal),var(--teal-dark)); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-size:32px; color:white; box-shadow:0 8px 24px rgba(0,180,166,.3); }
+  .thankyou h2 { font-family:'Sora',sans-serif; font-size:24px; font-weight:700; margin-bottom:12px; }
+  .thankyou p { font-size:15px; color:var(--mid); line-height:1.7; }
+  .next-steps { background:var(--teal-light); border-radius:12px; padding:18px 20px; margin-top:20px; text-align:left; }
+  .next-steps .ns-title { font-family:'Sora',sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--teal-dark); margin-bottom:10px; }
+  .next-steps ul { list-style:none; }
+  .next-steps ul li { font-size:13px; color:var(--mid); padding:5px 0; display:flex; gap:8px; }
+  .next-steps ul li::before { content:'→'; color:var(--teal); font-weight:700; }
+
+  .faq-item { border-bottom:1px solid #F0F3F7; padding:13px 0; }
+  .faq-q { font-weight:600; font-size:14px; cursor:pointer; color:var(--dark); display:flex; justify-content:space-between; align-items:center; gap:8px; }
+  .faq-q::after { content:'＋'; font-size:16px; color:var(--teal); flex-shrink:0; }
+  .faq-q.open::after { content:'－'; }
+  .faq-a { display:none; font-size:13px; color:var(--mid); line-height:1.7; padding-top:10px; }
+  .faq-a.open { display:block; }
+
+  .checklist { list-style:none; }
+  .checklist li { padding:8px 0; font-size:14px; color:var(--mid); display:flex; gap:10px; align-items:flex-start; border-bottom:1px solid #F5F7FA; line-height:1.5; }
+  .checklist li .icon { color:var(--teal); font-size:15px; flex-shrink:0; margin-top:2px; }
+
+  .section-chip { display:inline-flex; align-items:center; gap:6px; background:var(--teal-light); color:var(--teal-dark); font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:5px 12px; border-radius:100px; margin-bottom:18px; }
+
+  .error-msg { color:var(--red); font-size:12px; margin-top:6px; display:none; }
+  .error-msg.visible { display:block; }
+
+  .star-row { display:flex; gap:8px; margin-bottom:4px; }
+  .star-btn { font-size:24px; cursor:pointer; opacity:.3; transition:opacity .15s,transform .15s; background:none; border:none; padding:2px; }
+  .star-btn.lit { opacity:1; }
+  .star-btn:hover { transform:scale(1.2); }
+
+  .scale-row { display:flex; gap:6px; flex-wrap:wrap; }
+  .scale-btn { width:44px; height:44px; border:2px solid #E8EDF2; border-radius:10px; background:#FAFBFC; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:var(--light); cursor:pointer; transition:all .18s; display:flex; align-items:center; justify-content:center; }
+  .scale-btn:hover { border-color:var(--teal); color:var(--teal); }
+  .scale-btn.selected { border-color:var(--teal); background:var(--teal-light); color:var(--teal-dark); }
+
+  select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A9BB0' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:38px; }
+
+  @media(max-width:480px) {
+    .card { padding:22px 16px; }
+    .options-grid.cols-2 { grid-template-columns:1fr; }
+    .day-grid { grid-template-columns:repeat(4,1fr); }
+    .hero { padding:32px 16px 40px; }
+    .scale-row { gap:4px; }
+    .scale-btn { width:38px; height:38px; font-size:13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-logo">✦ itsGLO Cleaning</div>
+  <h1>This Isn't a Shift.<br><span>It's a Real Job.</span></h1>
+  <p>Most cleaning companies hand you shifts and send you home. At itsGLO, you have a stable full-time role with real training, real systems, and a team that invests in your growth.</p>
+  <div class="hero-pills">
+    <span class="pill">📍 Toronto, ON</span>
+    <span class="pill">🕗 Full-Time Role</span>
+    <span class="pill">💰 Paid Every Other Friday</span>
+    <span class="pill">📈 Room to Grow</span>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span id="progress-text">Getting started…</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+</div>
+
+<div class="form-wrap">
+
+  <!-- ── STEP 0: LANGUAGE ── -->
+  <div class="step active" id="step-0">
+    <div class="card">
+      <div class="q-label" style="text-align:center;margin-bottom:6px;">Select your language</div>
+      <div class="q-sublabel" style="text-align:center;">Selecciona tu idioma</div>
+      <div class="options-grid cols-2" style="margin-top:20px;">
+        <button class="lang-btn" onclick="selectLanguage('en')">
+          <span class="lang-flag">🇨🇦</span>English
+          <div class="lang-sub">Continue in English</div>
+        </button>
+        <button class="lang-btn" onclick="selectLanguage('es')">
+          <span class="lang-flag">🌎</span>Español
+          <div class="lang-sub">Continuar en Español</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 1: JOB OVERVIEW ── -->
+  <div class="step" id="step-1">
+    <div class="card">
+      <div class="section-chip">👋 <span data-t="about_role">About the Role</span></div>
+      <div class="q-label" data-t="job_title">Here's exactly what this job looks like</div>
+      <div class="q-sublabel" data-t="job_subtitle">We believe in full transparency. Read this before applying.</div>
+
+      <div class="sell-banner">
+        <div class="sell-title" data-t="sell_title">A stable job, not random shifts</div>
+        <p data-t="sell_body">Most cleaning companies call you when they need you. At itsGLO, you have a set schedule, a reliable income, and a team behind you. We train you properly, give you checklists, and promote from within. If you show up consistently and take pride in your work — you will grow here.</p>
+      </div>
+
+      <ul class="checklist">
+        <li><span class="icon">🏠</span> <span data-t="cl1">Professional condo & home cleaning — structured checklists for every job</span></li>
+        <li><span class="icon">📋</span> <span data-t="cl2">3 types: Routine cleans, Deep cleans, Move-In / Move-Out cleans</span></li>
+        <li><span class="icon">🕗</span> <span data-t="cl3">Typical hours: 8:30 AM – 5:30 PM. Some days end earlier or later.</span></li>
+        <li><span class="icon">🎒</span> <span data-t="cl4">You carry a supply backpack or cart (~6 kg). We provide everything in it.</span></li>
+        <li><span class="icon">🚌</span> <span data-t="cl5">Travel by TTC or your own vehicle. Far trips: we arrange a ride between jobs.</span></li>
+        <li><span class="icon">💰</span> <span data-t="cl6">Paid every other Friday. Travel time between jobs is paid.</span></li>
+        <li><span class="icon">❌</span> <span data-t="cl7">This is NOT maid service. No laundry, dishes, cooking, ironing, or pet care.</span></li>
+      </ul>
+
+      <div class="nav-row">
+        <button class="btn-next" onclick="nextStep()" data-t="sounds_good">This sounds good — continue →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: LEGAL / SIN ── -->
+  <div class="step" id="step-2">
+    <div class="card">
+      <div class="section-chip">⚖️ <span data-t="eligibility">Eligibility</span></div>
+      <div class="q-label" data-t="sin_q">Do you have a valid SIN and legal permission to work in Canada?</div>
+      <div class="warning-banner" data-t="sin_warn">We only hire people with legal work status in Canada. A valid work permit, PR, or citizenship is required — no exceptions.</div>
+
+      <div class="options-grid cols-2">
+        <button class="opt-btn" id="sin-yes" onclick="selectOption('sin','yes',this)"><span class="check"></span><span data-t="yes_i_do">Yes, I do</span></button>
+        <button class="opt-btn" id="sin-no"  onclick="selectOption('sin','no', this)"><span class="check"> </span><span data-t="no_i_dont">No, I don't</span></button>
+      </div>
+
+      <div class="input-group" id="visa-wrap" style="display:none;margin-top:18px;">
+        <label data-t="visa_label">What type of work authorization do you have? <span class="required">*</span></label>
+        <select id="visa-type" onchange="answers.visaType=this.value">
+          <option value="" data-t="select_opt">— Select —</option>
+          <option value="citizen" data-t="visa_citizen">Canadian Citizen</option>
+          <option value="pr" data-t="visa_pr">Permanent Resident (PR)</option>
+          <option value="open-wp" data-t="visa_owp">Open Work Permit</option>
+          <option value="employer-wp" data-t="visa_ewp">Employer-Specific Work Permit</option>
+          <option value="student" data-t="visa_student">Student Visa (with work authorization)</option>
+          <option value="other" data-t="visa_other">Other</option>
+        </select>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkGate('sin')" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 3: PHYSICAL ── -->
+  <div class="step" id="step-3">
+    <div class="card">
+      <div class="section-chip">💪 <span data-t="physical_chip">Physical Requirements</span></div>
+      <div class="q-label" data-t="physical_q">Are you comfortable doing active physical work for 6–8 hours a day?</div>
+      <div class="info-banner">
+        <div class="banner-title" data-t="what_this_means">What this involves</div>
+        <span data-t="physical_detail">Walking constantly between rooms, bending, kneeling, and carrying a backpack or cart weighing around 6 kg throughout the day. You'll be on your feet the entire shift. This is a physically active role.</span>
+      </div>
+      <div class="options-grid cols-2">
+        <button class="opt-btn" onclick="selectOption('physical','yes',this)"><span class="check"></span><span data-t="yes_no_problem">Yes, no problem</span></button>
+        <button class="opt-btn" onclick="selectOption('physical','limited',this)"><span class="check"> </span><span data-t="have_limits">I have physical limitations</span></button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkGate('physical')" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 4: TTC ── -->
+  <div class="step" id="step-4">
+    <div class="card">
+      <div class="section-chip">🚌 <span data-t="transit_chip">Getting Around</span></div>
+      <div class="q-label" data-t="ttc_q">Can you travel independently around Toronto to reach client homes?</div>
+      <div class="info-banner" data-t="ttc_detail">You'll receive the next day's schedule the evening before. You need to plan your own route and arrive on time. For cleans that are far apart, we arrange a ride between them — that travel time is paid.</div>
+      <div class="options-grid cols-1">
+        <button class="opt-btn" onclick="selectOption('ttc','ttc-maps',this)"><span class="check"></span><span data-t="ttc_opt1">Yes — I use TTC and I'm comfortable with Google Maps</span></button>
+        <button class="opt-btn" onclick="selectOption('ttc','own-car',this)"><span class="check"> </span><span data-t="ttc_opt2">Yes — I have my own vehicle</span></button>
+        <button class="opt-btn" onclick="selectOption('ttc','no',this)"><span class="check"> </span><span data-t="ttc_opt3">No — I'm not able to navigate independently</span></button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkGate('ttc')" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 5: EXPERIENCE ── -->
+  <div class="step" id="step-5">
+    <div class="card">
+      <div class="section-chip">🧹 <span data-t="exp_chip">Cleaning Experience</span></div>
+      <div class="q-label" data-t="exp_q">Do you have professional cleaning experience?</div>
+      <div class="info-banner">
+        <div class="banner-title" data-t="exp_note_title">Important note</div>
+        <span data-t="exp_note">This job requires you to have at least some cleaning experience — in a home, hotel, or cleaning company. You don't need years of it, but we can't hire someone who has never cleaned professionally. Experience in Canada is a strong asset.</span>
+      </div>
+      <div class="options-grid cols-1">
+        <button class="opt-btn" onclick="selectOption('expType','cleaning-co',this); showExp()"><span class="check"></span><span data-t="exp_opt1">Yes — I worked for a cleaning company</span></button>
+        <button class="opt-btn" onclick="selectOption('expType','hotel',this); showExp()"><span class="check"> </span><span data-t="exp_opt2">Yes — I worked in a hotel (housekeeping)</span></button>
+        <button class="opt-btn" onclick="selectOption('expType','other-exp',this); showExp()"><span class="check"> </span><span data-t="exp_opt3">Yes — other cleaning experience</span></button>
+        <button class="opt-btn" onclick="selectOption('expType','none',this); hideExp()"><span class="check"> </span><span data-t="exp_opt4">No professional experience</span></button>
+      </div>
+      <div id="exp-detail-wrap" style="display:none;margin-top:18px;">
+        <div class="input-group">
+          <label data-t="exp_company_label">Company or hotel name <span class="required">*</span></label>
+          <input type="text" id="exp-company" />
+        </div>
+        <div class="input-group">
+          <label data-t="exp_location_label">Was this in Canada?</label>
+          <div class="options-grid cols-2" style="margin-top:0;">
+            <button class="opt-btn" onclick="selectOption('expCanada','yes',this)"><span class="check"></span><span data-t="yes">Yes</span></button>
+            <button class="opt-btn" onclick="selectOption('expCanada','no',this)"><span class="check"> </span><span data-t="no">No</span></button>
+          </div>
+        </div>
+        <div class="input-group">
+          <label data-t="exp_duration_label">How long did you work there?</label>
+          <input type="text" id="exp-duration" placeholder="e.g. 8 months, 2 years" />
+        </div>
+      </div>
+      <div id="exp-none-wrap" style="display:none;margin-top:14px;">
+        <div class="warning-banner" data-t="exp_none_warn">We do prefer applicants with some cleaning experience. That said, if you're exceptionally reliable, detail-oriented, and coachable — tell us more about yourself in the next steps. We'll evaluate you on the full picture.</div>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="nextStep()" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 6: AVAILABILITY ── -->
+  <div class="step" id="step-6">
+    <div class="card">
+      <div class="section-chip">📅 <span data-t="avail_chip">Availability</span></div>
+      <div class="q-label" data-t="avail_q">Which days are you available to work?</div>
+      <div class="info-banner">
+        <div class="banner-title" data-t="avail_note_title">What we're looking for</div>
+        <span data-t="avail_note">We need at least <strong>5 days per week</strong> of availability. We work Monday through Sunday. Candidates who are available on Saturdays are strongly preferred — our Saturday clients are a key part of our schedule.</span>
+      </div>
+      <div class="day-grid" id="day-grid">
+        <button class="day-btn" onclick="toggleDay('mon',this)" data-t="mon">Mon</button>
+        <button class="day-btn" onclick="toggleDay('tue',this)" data-t="tue">Tue</button>
+        <button class="day-btn" onclick="toggleDay('wed',this)" data-t="wed">Wed</button>
+        <button class="day-btn" onclick="toggleDay('thu',this)" data-t="thu">Thu</button>
+        <button class="day-btn" onclick="toggleDay('fri',this)" data-t="fri">Fri</button>
+        <button class="day-btn" onclick="toggleDay('sat',this)" data-t="sat">Sat</button>
+        <button class="day-btn" onclick="toggleDay('sun',this)" data-t="sun">Sun</button>
+      </div>
+      <div id="days-warn" style="display:none;" class="warning-banner" data-t="days_warn">⚠️ We require at least 5 days of availability. Please select more days.</div>
+
+      <div class="input-group" style="margin-top:16px;">
+        <label data-t="flex_q">How flexible are you with your schedule if we need you on a different day occasionally?</label>
+        <div class="options-grid cols-1" style="margin-top:8px;">
+          <button class="opt-btn" onclick="selectOption('flexibility','very',this)"><span class="check"></span><span data-t="flex_very">Very flexible — I can adjust when needed</span></button>
+          <button class="opt-btn" onclick="selectOption('flexibility','some',this)"><span class="check"> </span><span data-t="flex_some">Somewhat flexible — with enough notice</span></button>
+          <button class="opt-btn" onclick="selectOption('flexibility','fixed',this)"><span class="check"> </span><span data-t="flex_fixed">Not very flexible — my schedule is fixed</span></button>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkDays()" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 7: PERSONAL INFO ── -->
+  <div class="step" id="step-7">
+    <div class="card">
+      <div class="section-chip">👤 <span data-t="personal_chip">Your Information</span></div>
+      <div class="q-label" data-t="personal_q">Tell us about yourself</div>
+
+      <div class="input-group">
+        <label data-t="name_label">Full Name <span class="required">*</span></label>
+        <input type="text" id="full-name" />
+        <div class="error-msg" id="err-name" data-t="err_name">Please enter your full name.</div>
+      </div>
+      <div class="input-group">
+        <label data-t="phone_label">Phone Number <span class="required">*</span></label>
+        <input type="tel" id="phone" placeholder="416-555-1234" />
+        <div class="error-msg" id="err-phone" data-t="err_phone">Please enter your phone number.</div>
+      </div>
+      <div class="input-group">
+        <label data-t="email_label">Email Address <span class="required">*</span></label>
+        <input type="email" id="email" placeholder="you@example.com" />
+        <div class="error-msg" id="err-email" data-t="err_email">Please enter a valid email address.</div>
+      </div>
+      <div class="input-group">
+        <label data-t="area_label">Which area of Toronto do you live in? <span class="required">*</span></label>
+        <select id="area" onchange="answers.area=this.value">
+          <option value="">— Select neighbourhood —</option>
+          <option value="downtown">Downtown / City Centre</option>
+          <option value="east-end">East End (Leslieville, Beaches, Riverdale)</option>
+          <option value="west-end">West End (Roncesvalles, Parkdale, Bloor West)</option>
+          <option value="north-york">North York</option>
+          <option value="scarborough">Scarborough</option>
+          <option value="etobicoke">Etobicoke</option>
+          <option value="york">York / Weston</option>
+          <option value="midtown">Midtown (Davisville, Forest Hill, Yonge-Eglinton)</option>
+          <option value="east-york">East York</option>
+          <option value="mississauga">Mississauga</option>
+          <option value="brampton">Brampton</option>
+          <option value="markham">Markham / Richmond Hill</option>
+          <option value="vaughan">Vaughan / Woodbridge</option>
+          <option value="other-gta">Other GTA</option>
+        </select>
+        <div class="error-msg" id="err-area" data-t="err_area">Please select your area.</div>
+      </div>
+      <div class="input-group">
+        <label data-t="lang_spoken_label">What languages do you speak?</label>
+        <input type="text" id="languages" placeholder="e.g. English, Spanish, Portuguese, Tagalog" />
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="validatePersonal()" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 8: QUALITY & RELIABILITY SCENARIOS ── -->
+  <div class="step" id="step-8">
+    <div class="card">
+      <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
+      <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
+      <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
+
+      <!-- Scenario 1: Sick day -->
+      <div class="input-group">
+        <label data-t="s1_label"><strong>1.</strong> You wake up feeling unwell on a workday. What do you do?</label>
+        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s1">
+          <button class="opt-btn" onclick="selectOption('s1','early-call',this)"><span class="check"></span><span data-t="s1a">I message or call my supervisor as early as possible — before the day starts</span></button>
+          <button class="opt-btn" onclick="selectOption('s1','try-anyway',this)"><span class="check"> </span><span data-t="s1b">I try to push through and come in unless it's really bad</span></button>
+          <button class="opt-btn" onclick="selectOption('s1','wait-see',this)"><span class="check"> </span><span data-t="s1c">I wait until I know for sure I can't make it, then I call</span></button>
+        </div>
+      </div>
+
+      <!-- Scenario 2: Client complaint -->
+      <div class="input-group" style="margin-top:4px;">
+        <label data-t="s2_label"><strong>2.</strong> A client messages saying the bathroom wasn't cleaned properly. What do you do?</label>
+        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s2">
+          <button class="opt-btn" onclick="selectOption('s2','apologize-fix',this)"><span class="check"></span><span data-t="s2a">I apologize, ask for specifics, and tell my supervisor right away</span></button>
+          <button class="opt-btn" onclick="selectOption('s2','defend',this)"><span class="check"> </span><span data-t="s2b">I explain that I did clean it thoroughly</span></button>
+          <button class="opt-btn" onclick="selectOption('s2','ignore',this)"><span class="check"> </span><span data-t="s2c">I let my supervisor handle it</span></button>
+        </div>
+      </div>
+
+      <!-- Scenario 3: Extra hours -->
+      <div class="input-group" style="margin-top:4px;">
+        <label data-t="s3_label"><strong>3.</strong> A coworker calls in sick and your supervisor asks if you can take their clean today on short notice. What do you say?</label>
+        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s3">
+          <button class="opt-btn" onclick="selectOption('s3','yes-always',this)"><span class="check"></span><span data-t="s3a">Yes — I'm happy to help if I'm free</span></button>
+          <button class="opt-btn" onclick="selectOption('s3','depends',this)"><span class="check"> </span><span data-t="s3b">Depends on my personal situation that day</span></button>
+          <button class="opt-btn" onclick="selectOption('s3','no',this)"><span class="check"> </span><span data-t="s3c">I usually can't take on extra work on short notice</span></button>
+        </div>
+      </div>
+
+      <!-- Scenario 4: Feedback -->
+      <div class="input-group" style="margin-top:4px;">
+        <label data-t="s4_label"><strong>4.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?</label>
+        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s4">
+          <button class="opt-btn" onclick="selectOption('s4','redo-learn',this)"><span class="check"></span><span data-t="s4a">I redo it, and ask what I can do differently next time</span></button>
+          <button class="opt-btn" onclick="selectOption('s4','redo-quiet',this)"><span class="check"> </span><span data-t="s4b">I redo it without saying anything</span></button>
+          <button class="opt-btn" onclick="selectOption('s4','push-back',this)"><span class="check"> </span><span data-t="s4c">I'd explain why I thought it was already done right</span></button>
+        </div>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="nextStep()" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 9: ABOUT YOU (open questions) ── -->
+  <div class="step" id="step-9">
+    <div class="card">
+      <div class="section-chip">⭐ <span data-t="about_chip">About You</span></div>
+      <div class="q-label" data-t="about_q">A few more questions to get to know you</div>
+
+      <div class="input-group">
+        <label data-t="words_label">What 3 words would your last manager or employer use to describe you?</label>
+        <input type="text" id="three-words" placeholder="e.g. Reliable, fast, detail-oriented" />
+      </div>
+
+      <div class="input-group">
+        <label data-t="detail_label">On a scale of 1–5, how detail-oriented are you? (1 = not very, 5 = extremely)</label>
+        <div class="scale-row" style="margin-top:10px;" id="detail-scale">
+          <button class="scale-btn" onclick="setScale('detail',1,this)">1</button>
+          <button class="scale-btn" onclick="setScale('detail',2,this)">2</button>
+          <button class="scale-btn" onclick="setScale('detail',3,this)">3</button>
+          <button class="scale-btn" onclick="setScale('detail',4,this)">4</button>
+          <button class="scale-btn" onclick="setScale('detail',5,this)">5</button>
+        </div>
+        <input type="text" id="detail-example" style="margin-top:10px;" placeholder="Give a quick example of why you chose that number..." />
+      </div>
+
+      <div class="input-group">
+        <label data-t="reliable_label">What does a great workday look like to you?</label>
+        <textarea id="great-day" placeholder=""></textarea>
+      </div>
+
+      <div class="input-group">
+        <label data-t="avail_hours_label">Roughly how many hours per week are you hoping to work?</label>
+        <div class="options-grid cols-2" style="margin-top:8px;" id="q-hours">
+          <button class="opt-btn" onclick="selectOption('hours','20-30',this)"><span class="check"> </span><span>20–30 hrs/week</span></button>
+          <button class="opt-btn" onclick="selectOption('hours','30-40',this)"><span class="check"> </span><span>30–40 hrs/week</span></button>
+          <button class="opt-btn" onclick="selectOption('hours','40+',this)"><span class="check"> </span><span>40+ hrs/week</span></button>
+          <button class="opt-btn" onclick="selectOption('hours','flexible',this)"><span class="check"> </span><span data-t="flex_hours">Whatever you need</span></button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label data-t="reliable_q">Is there anything that might make it hard for you to show up consistently, Monday to Saturday? <span style="font-weight:400;color:var(--light)">(e.g. medical, personal commitments)</span></label>
+        <textarea id="reliability-note" style="min-height:72px;" placeholder=""></textarea>
+      </div>
+
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="nextStep()" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 10: FAQ + SUBMIT ── -->
+  <div class="step" id="step-10">
+    <div class="card">
+      <div class="section-chip">❓ <span data-t="faq_chip">Common Questions</span></div>
+      <div class="q-label" data-t="faq_q">Before you submit — things people often ask</div>
+      <div id="faq-list"></div>
+
+      <div class="input-group" style="margin-top:24px;">
+        <label data-t="extra_label">Anything else you'd like us to know? (optional)</label>
+        <textarea id="extra-notes" style="min-height:72px;"></textarea>
+      </div>
+
+      <!-- Voluntary self-ID -->
+      <div style="margin-top:20px;padding-top:20px;border-top:1px solid #F0F3F7;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--light);margin-bottom:10px;" data-t="selfid_chip">Optional — Voluntary Self-Identification</div>
+        <div style="font-size:12px;color:var(--light);margin-bottom:14px;line-height:1.6;" data-t="selfid_note">This question is completely voluntary and will not affect your application in any way. We collect this information only to understand who is applying to itsGLO and to ensure we're reaching diverse communities.</div>
+        <div class="input-group">
+          <label data-t="ethnicity_label">How would you describe your ethnic or cultural background? (optional)</label>
+          <input type="text" id="ethnicity" placeholder="e.g. Latin American, Filipino, South Asian, Caribbean..." />
+        </div>
+      </div>
+
+      <div id="err-submit" class="error-msg" style="margin-bottom:8px;"></div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-submit" onclick="submitForm()" data-t="submit_btn">🎉 Submit Application</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SORRY SCREEN (eligibility fail) ── -->
+  <div class="step" id="step-sorry">
+    <div class="card">
+      <div class="sorry-screen">
+        <div class="sorry-icon">😔</div>
+        <h2 data-t="sorry_title">We're sorry — we can't move forward</h2>
+        <p id="sorry-msg" data-t="sorry_default">Unfortunately, based on your response, we're unable to proceed with your application at this time. We hope things change and invite you to apply again in the future.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── THANK YOU ── -->
+  <div class="step" id="step-thanks">
+    <div class="card">
+      <div class="thankyou">
+        <div class="big-check">✓</div>
+        <h2 data-t="thanks_title">Application Received!</h2>
+        <p data-t="thanks_body">Thank you for applying to itsGLO Cleaning. Our team reviews every application personally. If your profile is a strong fit, we'll reach out within a few business days to schedule the next step.</p>
+        <div class="next-steps">
+          <div class="ns-title" data-t="whats_next">What happens next</div>
+          <ul>
+            <li data-t="ns1">We review your application (2–4 business days)</li>
+            <li data-t="ns2">If shortlisted, we'll contact you by phone or email</li>
+            <li data-t="ns3">Next step: an in-person evaluation to see how you clean</li>
+            <li data-t="ns4">If the evaluation goes well, we move forward together</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /form-wrap -->
+
+<script>
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let lang = 'en';
+let currentStep = 0;
+
+const answers = {
+  language:'', sin:'', visaType:'', physical:'', ttc:'',
+  expType:'', expCompany:'', expCanada:'', expDuration:'',
+  days:[], flexibility:'',
+  fullName:'', phone:'', email:'', area:'', languages:'',
+  s1:'', s2:'', s3:'', s4:'',
+  threeWords:'', detailScale:'', detailExample:'', greatDay:'',
+  hours:'', reliabilityNote:'',
+  extraNotes:'', ethnicity:'',
+  scheduleNote:''
+};
+
+// ═══════════════════════════════════════════
+//  TRANSLATIONS
+// ═══════════════════════════════════════════
+const T = {
+  en: {
+    about_role:'About the Role', job_title:"Here's exactly what this job looks like",
+    job_subtitle:'We believe in full transparency. Read this before applying.',
+    sell_title:'A stable job, not random shifts',
+    sell_body:"Most cleaning companies call you when they need you. At itsGLO, you have a set schedule, a reliable income, and a team behind you. We train you properly, give you checklists, and promote from within. If you show up consistently and take pride in your work — you will grow here.",
+    cl1:'Professional condo & home cleaning — structured checklists for every job',
+    cl2:'3 types: Routine cleans, Deep cleans, Move-In / Move-Out cleans',
+    cl3:'Typical hours: 8:30 AM – 5:30 PM. Some days end earlier or later.',
+    cl4:'You carry a supply backpack or cart (~6 kg). We provide everything in it.',
+    cl5:'Travel by TTC or your own vehicle. Far trips: we arrange a ride between jobs.',
+    cl6:'Paid every other Friday. Travel time between jobs is paid.',
+    cl7:'This is NOT maid service. No laundry, dishes, cooking, ironing, or pet care.',
+    sounds_good:'This sounds good — continue →',
+    eligibility:'Eligibility', sin_q:'Do you have a valid SIN and legal permission to work in Canada?',
+    sin_warn:'We only hire people with legal work status in Canada. A valid work permit, PR, or citizenship is required — no exceptions.',
+    yes_i_do:'Yes, I do', no_i_dont:"No, I don't",
+    visa_label:'What type of work authorization do you have?',
+    select_opt:'— Select —', visa_citizen:'Canadian Citizen', visa_pr:'Permanent Resident (PR)',
+    visa_owp:'Open Work Permit', visa_ewp:'Employer-Specific Work Permit',
+    visa_student:'Student Visa (with work authorization)', visa_other:'Other',
+    physical_chip:'Physical Requirements',
+    physical_q:'Are you comfortable doing active physical work for 6–8 hours a day?',
+    what_this_means:'What this involves',
+    physical_detail:'Walking constantly between rooms, bending, kneeling, and carrying a backpack or cart weighing around 6 kg throughout the day. You\'ll be on your feet the entire shift. This is a physically active role.',
+    yes_no_problem:'Yes, no problem', have_limits:'I have physical limitations',
+    transit_chip:'Getting Around',
+    ttc_q:'Can you travel independently around Toronto to reach client homes?',
+    ttc_detail:"You'll receive the next day's schedule the evening before. You need to plan your own route and arrive on time. For cleans that are far apart, we arrange a ride between them — that travel time is paid.",
+    ttc_opt1:'Yes — I use TTC and I\'m comfortable with Google Maps',
+    ttc_opt2:'Yes — I have my own vehicle',
+    ttc_opt3:"No — I'm not able to navigate independently",
+    exp_chip:'Cleaning Experience',
+    exp_q:'Do you have professional cleaning experience?',
+    exp_note_title:'Important note',
+    exp_note:"This job requires you to have at least some cleaning experience — in a home, hotel, or cleaning company. You don't need years of it, but we can't hire someone who has never cleaned professionally. Experience in Canada is a strong asset.",
+    exp_opt1:'Yes — I worked for a cleaning company',
+    exp_opt2:'Yes — I worked in a hotel (housekeeping)',
+    exp_opt3:'Yes — other cleaning experience',
+    exp_opt4:'No professional experience',
+    exp_company_label:'Company or hotel name',
+    exp_location_label:'Was this in Canada?',
+    exp_duration_label:'How long did you work there?',
+    exp_none_warn:"We do prefer applicants with some cleaning experience. That said, if you're exceptionally reliable, detail-oriented, and coachable — tell us more about yourself in the next steps. We'll evaluate you on the full picture.",
+    yes:'Yes', no:'No',
+    avail_chip:'Availability', avail_q:'Which days are you available to work?',
+    avail_note_title:'What we\'re looking for',
+    avail_note:'We need at least <strong>5 days per week</strong> of availability. We work Monday through Sunday. Candidates who are available on Saturdays are strongly preferred — our Saturday clients are a key part of our schedule.',
+    mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun',
+    days_warn:'⚠️ We require at least 5 days of availability. Please select more days.',
+    flex_q:'How flexible are you with your schedule if we need you on a different day occasionally?',
+    flex_very:'Very flexible — I can adjust when needed',
+    flex_some:'Somewhat flexible — with enough notice',
+    flex_fixed:'Not very flexible — my schedule is fixed',
+    personal_chip:'Your Information', personal_q:'Tell us about yourself',
+    name_label:'Full Name', phone_label:'Phone Number', email_label:'Email Address',
+    area_label:'Which area of Toronto do you live in?',
+    lang_spoken_label:'What languages do you speak?',
+    err_name:'Please enter your full name.', err_phone:'Please enter your phone number.',
+    err_email:'Please enter a valid email address.', err_area:'Please select your area.',
+    scenarios_chip:'How You Work',
+    scenarios_q:'A few real scenarios — choose what you\'d actually do',
+    scenarios_sub:'There are no trick questions. We want to understand how you think and communicate.',
+    s1_label:'<strong>1.</strong> You wake up feeling unwell on a workday. What do you do?',
+    s1a:'I message or call my supervisor as early as possible — before the day starts',
+    s1b:'I try to push through and come in unless it\'s really bad',
+    s1c:"I wait until I know for sure I can't make it, then I call",
+    s2_label:"<strong>2.</strong> A client messages saying the bathroom wasn't cleaned properly. What do you do?",
+    s2a:'I apologize, ask for specifics, and tell my supervisor right away',
+    s2b:'I explain that I did clean it thoroughly',
+    s2c:'I let my supervisor handle it',
+    s3_label:"<strong>3.</strong> A coworker calls in sick and your supervisor asks if you can take their clean today on short notice. What do you say?",
+    s3a:"Yes — I'm happy to help if I'm free",
+    s3b:'Depends on my personal situation that day',
+    s3c:"I usually can't take on extra work on short notice",
+    s4_label:'<strong>4.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?',
+    s4a:'I redo it, and ask what I can do differently next time',
+    s4b:'I redo it without saying anything',
+    s4c:"I'd explain why I thought it was already done right",
+    about_chip:'About You', about_q:'A few more questions to get to know you',
+    words_label:'What 3 words would your last manager or employer use to describe you?',
+    detail_label:'On a scale of 1–5, how detail-oriented are you? (1 = not very, 5 = extremely)',
+    reliable_label:'What does a great workday look like to you?',
+    avail_hours_label:'Roughly how many hours per week are you hoping to work?',
+    flex_hours:'Whatever you need',
+    reliable_q:'Is there anything that might make it hard for you to show up consistently, Monday to Saturday?',
+    faq_chip:'Common Questions', faq_q:'Before you submit — things people often ask',
+    extra_label:"Anything else you'd like us to know? (optional)",
+    selfid_chip:'Optional — Voluntary Self-Identification',
+    selfid_note:'This question is completely voluntary and will not affect your application in any way. We collect this information only to understand who is applying to itsGLO and to ensure we\'re reaching diverse communities.',
+    ethnicity_label:'How would you describe your ethnic or cultural background? (optional)',
+    submit_btn:'🎉 Submit Application',
+    back:'Back', continue:'Continue',
+    sorry_title:"We're sorry — we can't move forward",
+    sorry_sin:'Unfortunately, we are only able to hire individuals who have legal work authorization in Canada. We hope to hear from you once you have the proper documentation.',
+    sorry_physical:'Unfortunately, this role requires full physical capacity for 6–8 hours per day. We\'re not able to accommodate significant physical limitations at this time.',
+    sorry_ttc:'This role requires you to travel independently around Toronto. Unfortunately, we can\'t move forward without that ability.',
+    sorry_default:'Unfortunately, based on your response, we\'re unable to proceed at this time.',
+    thanks_title:'Application Received!',
+    thanks_body:"Thank you for applying to itsGLO Cleaning. Our team reviews every application personally. If your profile is a strong fit, we'll reach out within a few business days to schedule the next step.",
+    whats_next:'What happens next',
+    ns1:'We review your application (2–4 business days)',
+    ns2:'If shortlisted, we\'ll contact you by phone or email',
+    ns3:'Next step: an in-person evaluation to see how you clean',
+    ns4:'If the evaluation goes well, we move forward together',
+    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','How you work','About you','Final review'],
+  },
+  es: {
+    about_role:'Sobre el Trabajo', job_title:'Así es exactamente este trabajo',
+    job_subtitle:'Creemos en la transparencia total. Léelo antes de aplicar.',
+    sell_title:'Un trabajo estable, no turnos al azar',
+    sell_body:'La mayoría de empresas de limpieza te llaman cuando te necesitan. En itsGLO tienes un horario fijo, ingresos estables y un equipo que te respalda. Te entrenamos bien, te damos listas de verificación y promovemos desde adentro. Si te presentas con constancia y te enorgulleces de tu trabajo — crecerás aquí.',
+    cl1:'Limpieza profesional de condos y casas — listas de verificación para cada trabajo',
+    cl2:'3 tipos: Limpiezas rutinarias, Profundas y Mudanzas',
+    cl3:'Horario típico: 8:30 AM – 5:30 PM. Algunos días terminan antes o después.',
+    cl4:'Cargas una mochila o carrito de materiales (~6 kg). Nosotros proveemos todo.',
+    cl5:'Viajas en TTC o tu propio vehículo. Viajes largos: organizamos transporte pagado.',
+    cl6:'Pago cada dos viernes. El tiempo de viaje entre trabajos es pagado.',
+    cl7:'NO son servicios de mucama. Sin lavandería, platos, cocina, planchado ni mascotas.',
+    sounds_good:'Suena bien — continuar →',
+    eligibility:'Elegibilidad', sin_q:'¿Tienes un SIN válido y permiso legal para trabajar en Canadá?',
+    sin_warn:'Solo contratamos personas con estatus legal de trabajo en Canadá. Se requiere permiso de trabajo válido, PR o ciudadanía — sin excepciones.',
+    yes_i_do:'Sí, tengo', no_i_dont:'No, no tengo',
+    visa_label:'¿Qué tipo de autorización de trabajo tienes?',
+    select_opt:'— Selecciona —', visa_citizen:'Ciudadano/a Canadiense', visa_pr:'Residente Permanente (PR)',
+    visa_owp:'Permiso de Trabajo Abierto', visa_ewp:'Permiso de Trabajo para Empleador Específico',
+    visa_student:'Visa de Estudiante (con autorización de trabajo)', visa_other:'Otro',
+    physical_chip:'Requisitos Físicos',
+    physical_q:'¿Estás cómodo/a haciendo trabajo físico activo por 6–8 horas al día?',
+    what_this_means:'Qué implica esto',
+    physical_detail:'Caminar constantemente entre habitaciones, agacharse, arrodillarse y cargar una mochila o carrito de ~6 kg durante todo el día. Estarás de pie todo el turno. Es un trabajo muy activo.',
+    yes_no_problem:'Sí, sin problema', have_limits:'Tengo limitaciones físicas',
+    transit_chip:'Movilidad',
+    ttc_q:'¿Puedes moverte de forma independiente por Toronto para llegar a los clientes?',
+    ttc_detail:'Recibirás el horario del día siguiente la noche anterior. Necesitas planear tu propia ruta y llegar a tiempo. Para limpiezas muy separadas, organizamos transporte entre ellas — ese tiempo es pagado.',
+    ttc_opt1:'Sí — uso el TTC y me manejo bien con Google Maps',
+    ttc_opt2:'Sí — tengo mi propio vehículo',
+    ttc_opt3:'No — no puedo navegar de forma independiente',
+    exp_chip:'Experiencia en Limpieza',
+    exp_q:'¿Tienes experiencia profesional en limpieza?',
+    exp_note_title:'Nota importante',
+    exp_note:'Este trabajo requiere al menos algo de experiencia en limpieza — en una casa, hotel o empresa de limpieza. No necesitas años, pero no podemos contratar a alguien sin experiencia profesional. La experiencia en Canadá es un gran valor.',
+    exp_opt1:'Sí — trabajé en una empresa de limpieza',
+    exp_opt2:'Sí — trabajé en un hotel (housekeeping)',
+    exp_opt3:'Sí — otra experiencia de limpieza',
+    exp_opt4:'Sin experiencia profesional',
+    exp_company_label:'Nombre de la empresa u hotel',
+    exp_location_label:'¿Fue en Canadá?',
+    exp_duration_label:'¿Cuánto tiempo trabajaste allí?',
+    exp_none_warn:'Preferimos candidatos con algo de experiencia. Si eres muy confiable, orientado al detalle y abierto al aprendizaje — cuéntanos más en los siguientes pasos. Evaluamos el perfil completo.',
+    yes:'Sí', no:'No',
+    avail_chip:'Disponibilidad', avail_q:'¿Qué días estás disponible para trabajar?',
+    avail_note_title:'Lo que buscamos',
+    avail_note:'Necesitamos al menos <strong>5 días por semana</strong> de disponibilidad. Trabajamos de lunes a domingo. Los candidatos disponibles los sábados son fuertemente preferidos — los clientes del sábado son clave en nuestra agenda.',
+    mon:'Lun', tue:'Mar', wed:'Mié', thu:'Jue', fri:'Vie', sat:'Sáb', sun:'Dom',
+    days_warn:'⚠️ Necesitamos al menos 5 días de disponibilidad. Por favor selecciona más días.',
+    flex_q:'¿Qué tan flexible eres si ocasionalmente necesitamos que trabajes un día diferente?',
+    flex_very:'Muy flexible — puedo ajustarme cuando sea necesario',
+    flex_some:'Algo flexible — con suficiente aviso',
+    flex_fixed:'Poco flexible — mi horario es fijo',
+    personal_chip:'Tu Información', personal_q:'Cuéntanos sobre ti',
+    name_label:'Nombre Completo', phone_label:'Número de Teléfono', email_label:'Correo Electrónico',
+    area_label:'¿En qué zona de Toronto vives?',
+    lang_spoken_label:'¿Qué idiomas hablas?',
+    err_name:'Por favor ingresa tu nombre completo.', err_phone:'Por favor ingresa tu teléfono.',
+    err_email:'Por favor ingresa un correo válido.', err_area:'Por favor selecciona tu zona.',
+    scenarios_chip:'Cómo Trabajas',
+    scenarios_q:'Algunos escenarios reales — elige lo que harías',
+    scenarios_sub:'No hay preguntas trampa. Queremos entender cómo piensas y te comunicas.',
+    s1_label:'<strong>1.</strong> Te despiertas sintiéndote mal un día de trabajo. ¿Qué haces?',
+    s1a:'Escribo o llamo a mi supervisor lo antes posible — antes de que empiece el día',
+    s1b:'Intento seguir adelante e ir a trabajar a menos que sea muy grave',
+    s1c:'Espero hasta saber con certeza que no puedo ir, y entonces llamo',
+    s2_label:'<strong>2.</strong> Un cliente escribe diciendo que el baño no quedó bien limpio. ¿Qué haces?',
+    s2a:'Me disculpo, pido detalles y aviso a mi supervisor de inmediato',
+    s2b:'Explico que sí lo limpié bien',
+    s2c:'Dejo que mi supervisor lo maneje',
+    s3_label:'<strong>3.</strong> Un compañero se enferma y tu supervisor te pide que hagas su limpieza hoy con poco aviso. ¿Qué dices?',
+    s3a:'Sí — con gusto ayudo si estoy libre',
+    s3b:'Depende de mi situación personal ese día',
+    s3c:'Generalmente no puedo tomar trabajo extra con poco aviso',
+    s4_label:'<strong>4.</strong> Tu supervisor te pide que rehaga algo que ya creías haber hecho bien. ¿Cómo reaccionas?',
+    s4a:'Lo rehago y pregunto qué puedo hacer diferente la próxima vez',
+    s4b:'Lo rehago sin decir nada',
+    s4c:'Explicaría por qué pensaba que ya estaba bien hecho',
+    about_chip:'Sobre Ti', about_q:'Algunas preguntas más para conocerte',
+    words_label:'¿Qué 3 palabras usaría tu último jefe o empleador para describirse?',
+    detail_label:'Del 1 al 5, ¿qué tan detallista eres? (1 = poco, 5 = muy)',
+    reliable_label:'¿Cómo sería un gran día de trabajo para ti?',
+    avail_hours_label:'¿Aproximadamente cuántas horas por semana esperas trabajar?',
+    flex_hours:'Lo que necesiten',
+    reliable_q:'¿Hay algo que podría dificultarte presentarte con constancia de lunes a sábado?',
+    faq_chip:'Preguntas Frecuentes', faq_q:'Antes de enviar — lo que la gente suele preguntar',
+    extra_label:'¿Algo más que quieras que sepamos? (opcional)',
+    selfid_chip:'Opcional — Auto-identificación Voluntaria',
+    selfid_note:'Esta pregunta es completamente voluntaria y no afectará tu solicitud de ninguna manera. Recopilamos esta información únicamente para entender quién aplica a itsGLO y asegurarnos de llegar a comunidades diversas.',
+    ethnicity_label:'¿Cómo describirías tu origen étnico o cultural? (opcional)',
+    submit_btn:'🎉 Enviar Solicitud',
+    back:'Atrás', continue:'Continuar',
+    sorry_title:'Lo sentimos — no podemos continuar',
+    sorry_sin:'Desafortunadamente, solo podemos contratar a personas con autorización legal de trabajo en Canadá. Esperamos que puedas obtener la documentación adecuada y apliques de nuevo.',
+    sorry_physical:'Desafortunadamente, este rol requiere capacidad física completa por 6–8 horas al día. No podemos acomodar limitaciones físicas significativas en este momento.',
+    sorry_ttc:'Este rol requiere que te muevas de forma independiente por Toronto. Lamentablemente no podemos continuar sin esa capacidad.',
+    sorry_default:'Lamentablemente, según tu respuesta, no podemos continuar con tu solicitud en este momento.',
+    thanks_title:'¡Solicitud Recibida!',
+    thanks_body:'Gracias por aplicar a itsGLO Cleaning. Nuestro equipo revisa cada solicitud personalmente. Si tu perfil es una buena opción, te contactaremos en unos días hábiles para coordinar el siguiente paso.',
+    whats_next:'Qué pasa a continuación',
+    ns1:'Revisamos tu solicitud (2–4 días hábiles)',
+    ns2:'Si eres preseleccionado/a, te contactaremos por teléfono o correo',
+    ns3:'Siguiente paso: una evaluación en persona para ver cómo limpias',
+    ns4:'Si la evaluación va bien, avanzamos juntos',
+    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Cómo trabajas','Sobre ti','Revisión final'],
+  }
+};
+
+function t(key) { return (T[lang] && T[lang][key]) || T.en[key] || key; }
+
+// ═══════════════════════════════════════════
+//  LANGUAGE
+// ═══════════════════════════════════════════
+function selectLanguage(l) {
+  lang = l;
+  answers.language = l;
+  applyTranslations();
+  buildFAQ();
+  goToStep(1);
+}
+
+function applyTranslations() {
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    const val = t(key);
+    if (el.tagName === 'OPTION') { el.textContent = val; }
+    else if (el.innerHTML && val.includes('<')) { el.innerHTML = val; }
+    else { el.textContent = val; }
+  });
+  // day buttons
+  const days = ['mon','tue','wed','thu','fri','sat','sun'];
+  document.querySelectorAll('.day-btn').forEach((btn,i) => { btn.textContent = t(days[i]); });
+}
+
+// ═══════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════
+function goToStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('step-' + n);
+  if (el) { el.classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+  currentStep = n;
+  updateProgress();
+}
+
+function nextStep() { goToStep(currentStep + 1); }
+function prevStep() {
+  if (currentStep === 'sorry' || currentStep === 'thanks') return;
+  if (currentStep <= 1) { goToStep(1); return; }
+  goToStep(currentStep - 1);
+}
+
+function updateProgress() {
+  const stepNum = typeof currentStep === 'number' ? currentStep : 10;
+  const pct = Math.min(100, Math.round((stepNum / 10) * 100));
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  const labels = t('progress_labels');
+  document.getElementById('progress-text').textContent = (labels && labels[stepNum]) || '';
+}
+
+// ═══════════════════════════════════════════
+//  OPTION SELECTION
+// ═══════════════════════════════════════════
+function selectOption(key, val, btn) {
+  answers[key] = val;
+  const parent = btn.closest('.options-grid');
+  parent.querySelectorAll('.opt-btn').forEach(b => {
+    b.classList.remove('selected');
+    const c = b.querySelector('.check');
+    if (c) c.textContent = ' ';
+  });
+  btn.classList.add('selected');
+  const chk = btn.querySelector('.check');
+  if (chk) chk.textContent = '✓';
+}
+
+function toggleDay(val, btn) {
+  btn.classList.toggle('selected');
+  if (btn.classList.contains('selected')) {
+    if (!answers.days.includes(val)) answers.days.push(val);
+  } else {
+    answers.days = answers.days.filter(v => v !== val);
+  }
+}
+
+function setScale(key, val, btn) {
+  answers[key+'Scale'] = val;
+  const parent = btn.closest('.scale-row');
+  parent.querySelectorAll('.scale-btn').forEach((b,i) => {
+    b.classList.toggle('selected', i < val);
+  });
+}
+
+function showExp() {
+  document.getElementById('exp-detail-wrap').style.display = 'block';
+  document.getElementById('exp-none-wrap').style.display = 'none';
+}
+function hideExp() {
+  document.getElementById('exp-detail-wrap').style.display = 'none';
+  document.getElementById('exp-none-wrap').style.display = 'block';
+}
+
+// ═══════════════════════════════════════════
+//  GATE CHECKS
+// ═══════════════════════════════════════════
+const sorryMessages = {
+  sin: () => t('sorry_sin'),
+  physical: () => t('sorry_physical'),
+  ttc: () => t('sorry_ttc'),
+};
+
+function checkGate(field) {
+  // show visa dropdown when sin=yes
+  if (field === 'sin') {
+    if (!answers.sin) return;
+    if (answers.sin === 'yes') {
+      document.getElementById('visa-wrap').style.display = 'block';
+      nextStep(); return;
+    }
+    if (answers.sin === 'no') { showSorry('sin'); return; }
+  }
+  if (field === 'physical') {
+    if (!answers.physical) return;
+    if (answers.physical === 'limited') { showSorry('physical'); return; }
+    nextStep(); return;
+  }
+  if (field === 'ttc') {
+    if (!answers.ttc) return;
+    if (answers.ttc === 'no') { showSorry('ttc'); return; }
+    nextStep(); return;
+  }
+}
+
+// show visa section when sin=yes selected
+document.getElementById('sin-yes').addEventListener('click', () => {
+  document.getElementById('visa-wrap').style.display = 'block';
+});
+document.getElementById('sin-no').addEventListener('click', () => {
+  document.getElementById('visa-wrap').style.display = 'none';
+});
+
+function showSorry(reason) {
+  document.getElementById('sorry-msg').textContent = sorryMessages[reason] ? sorryMessages[reason]() : t('sorry_default');
+  document.getElementById('step-sorry').querySelector('h2').textContent = t('sorry_title');
+  goToStep('sorry');
+}
+
+function checkDays() {
+  if (answers.days.length < 5) {
+    document.getElementById('days-warn').style.display = 'block';
+    return;
+  }
+  document.getElementById('days-warn').style.display = 'none';
+  nextStep();
+}
+
+// ═══════════════════════════════════════════
+//  PERSONAL VALIDATION
+// ═══════════════════════════════════════════
+function validatePersonal() {
+  let ok = true;
+  const name  = document.getElementById('full-name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const area  = document.getElementById('area').value;
+
+  const toggle = (id, show) => document.getElementById(id).classList.toggle('visible', show);
+  toggle('err-name',  !name);    if (!name)  ok = false;
+  toggle('err-phone', !phone);   if (!phone) ok = false;
+  toggle('err-email', !email || !email.includes('@')); if (!email || !email.includes('@')) ok = false;
+  toggle('err-area',  !area);    if (!area)  ok = false;
+
+  if (ok) {
+    answers.fullName = name; answers.phone = phone;
+    answers.email = email;   answers.area  = area;
+    answers.languages = document.getElementById('languages').value.trim();
+    nextStep();
+  }
+}
+
+// ═══════════════════════════════════════════
+//  FAQ
+// ═══════════════════════════════════════════
+const faqs = {
+  en:[
+    {q:'Do I need to bring my own cleaning supplies?', a:'No. We provide a fully stocked supply backpack or cart (about 6 kg). You keep it organized and stocked. If you buy a restock item, we reimburse you with receipts.'},
+    {q:'Is experience required?',                     a:'You need to have at least some professional cleaning experience — hotel housekeeping, a cleaning company, or similar. No experience at all is a dealbreaker. Experience in Canada is a strong asset.'},
+    {q:'How does pay work?',                          a:'You\'re paid every other Friday. Travel time between jobs is also paid. If you purchase a supply item, you\'re reimbursed with a receipt.'},
+    {q:'What does the next step look like?',          a:'If we like your application, we\'ll reach out to schedule an in-person cleaning evaluation. We\'ll see how you work through a real clean. If that goes well, we move forward.'},
+    {q:'Is there room to grow?',                      a:'Yes. Promotions are based on consistent quality, punctuality, checklist discipline, efficiency improvements, and professional communication. We promote from within.'},
+  ],
+  es:[
+    {q:'¿Tengo que traer mis propios materiales?',           a:'No. Proveemos una mochila o carrito completamente equipado (~6 kg). Tú lo mantienes organizado. Si compras algo para reponer, te reembolsamos con recibo.'},
+    {q:'¿Se requiere experiencia?',                          a:'Necesitas tener al menos algo de experiencia en limpieza profesional — housekeeping en hotel, empresa de limpieza o similar. Sin ninguna experiencia no es posible continuar. La experiencia en Canadá es un gran valor.'},
+    {q:'¿Cómo funciona el pago?',                            a:'Se paga cada dos viernes. El tiempo de viaje entre trabajos también es pagado. Si compras un artículo de limpieza, te reembolsamos con recibo.'},
+    {q:'¿Cuál es el siguiente paso?',                        a:'Si tu solicitud nos convence, te contactamos para agendar una evaluación de limpieza en persona. Veremos cómo trabajas en una limpieza real. Si va bien, avanzamos.'},
+    {q:'¿Hay oportunidades de crecer?',                      a:'Sí. Las promociones se basan en calidad constante, puntualidad, disciplina con las listas, mejora en eficiencia y comunicación profesional. Promovemos desde adentro.'},
+  ]
+};
+
+function buildFAQ() {
+  const list = document.getElementById('faq-list');
+  const items = faqs[lang] || faqs.en;
+  list.innerHTML = items.map((f,i) => `
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(${i})" id="faq-q-${i}">${f.q}</div>
+      <div class="faq-a" id="faq-a-${i}">${f.a}</div>
+    </div>`).join('');
+}
+function toggleFaq(i) {
+  document.getElementById('faq-q-'+i).classList.toggle('open');
+  document.getElementById('faq-a-'+i).classList.toggle('open');
+}
+
+// ═══════════════════════════════════════════
+//  SUBMIT
+// ═══════════════════════════════════════════
+async function submitForm() {
+  answers.threeWords     = document.getElementById('three-words').value.trim();
+  answers.detailExample  = document.getElementById('detail-example').value.trim();
+  answers.greatDay       = document.getElementById('great-day').value.trim();
+  answers.reliabilityNote= document.getElementById('reliability-note').value.trim();
+  answers.extraNotes     = document.getElementById('extra-notes').value.trim();
+  answers.ethnicity      = document.getElementById('ethnicity').value.trim();
+  answers.expCompany     = document.getElementById('exp-company') ? document.getElementById('exp-company').value.trim() : '';
+  answers.expDuration    = document.getElementById('exp-duration') ? document.getElementById('exp-duration').value.trim() : '';
+  answers.visaType       = document.getElementById('visa-type') ? document.getElementById('visa-type').value : '';
+
+  // ── REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ──
+  const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+  const btn = document.querySelector('.btn-submit');
+  btn.textContent = lang === 'es' ? 'Enviando…' : 'Submitting…';
+  btn.disabled = true;
+
+  const payload = {
+    timestamp:       new Date().toISOString(),
+    language:        answers.language,
+    fullName:        answers.fullName,
+    phone:           answers.phone,
+    email:           answers.email,
+    area:            answers.area,
+    languages:       answers.languages,
+    sin:             answers.sin,
+    visaType:        answers.visaType,
+    physical:        answers.physical,
+    ttc:             answers.ttc,
+    expType:         answers.expType,
+    expCompany:      answers.expCompany,
+    expCanada:       answers.expCanada,
+    expDuration:     answers.expDuration,
+    days:            answers.days.join(', '),
+    flexibility:     answers.flexibility,
+    hoursPerWeek:    answers.hours,
+    s1_sickDay:      answers.s1,
+    s2_clientComplaint: answers.s2,
+    s3_coverShift:   answers.s3,
+    s4_feedback:     answers.s4,
+    threeWords:      answers.threeWords,
+    detailScale:     answers.detailScale,
+    detailExample:   answers.detailExample,
+    greatDay:        answers.greatDay,
+    reliabilityNote: answers.reliabilityNote,
+    extraNotes:      answers.extraNotes,
+    ethnicity:       answers.ethnicity,
+  };
+
+  if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method:'POST', mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+    } catch(e) { console.error('Submission error:', e); }
+  } else {
+    console.log('DEV MODE — submission payload:', payload);
+  }
+
+  goToStep('thanks');
+}
+
+// Init
+buildFAQ();
+updateProgress();
+</script>
+</body>
+</html>
