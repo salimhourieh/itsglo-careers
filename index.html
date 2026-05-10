@@ -1101,6 +1101,14 @@ async function submitForm() {
   answers.expDuration    = document.getElementById('exp-duration') ? document.getElementById('exp-duration').value.trim() : '';
   answers.visaType       = document.getElementById('visa-type') ? document.getElementById('visa-type').value : '';
 
+  // Primary: itsGLO People Portal (lands the candidate in the kanban
+  // and stores every Q&A on applications.screening_responses).
+  // INTAKE_KEY is matched against settings.WEBSITE_INTAKE_KEY on the
+  // backend — friction barrier against random spam, not a true secret.
+  const PORTAL_INTAKE_URL = 'https://itsglo-backend.onrender.com/api/v1/intake/website/cleaner/';
+  const PORTAL_INTAKE_KEY = 'l6bOsT27Ws1XXESGe2CXqGBAXcyRsEOm_lUN6ziSTsI';
+  // Backup: legacy Google Apps Script — keeps the spreadsheet filling
+  // during cutover so nothing is lost. Remove once portal is verified.
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz0VH69vEuimtgQlrMWkvBS6NjpdhcGvmZhGNy1a21pzXRQ9NEfBTwDKwN_eydQ8wkGdQ/exec';
 
   const btn = document.querySelector('.btn-submit');
@@ -1138,13 +1146,26 @@ async function submitForm() {
     ethnicity:       answers.ethnicity,
   };
 
-  try {
-    await fetch(GOOGLE_SCRIPT_URL, {
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload)
-    });
-  } catch(e) { console.error('Submission error:', e); }
+  // Fire both submissions in parallel. Portal first (CORS so we know
+  // if it landed), Apps Script second (no-cors backup). Either failing
+  // does not block the thank-you screen — we never want the candidate
+  // to see an error after spending 5 minutes on the form.
+  const portalPromise = fetch(PORTAL_INTAKE_URL, {
+    method: 'POST',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json', 'X-Intake-Key': PORTAL_INTAKE_KEY },
+    body: JSON.stringify(payload),
+  }).then(r => {
+    if (!r.ok && r.status !== 409) console.error('portal intake failed', r.status);
+  }).catch(e => { console.error('portal intake error:', e); });
+
+  const sheetPromise = fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  }).catch(e => { console.error('apps-script error:', e); });
+
+  await Promise.allSettled([portalPromise, sheetPromise]);
 
   goToStep('thanks');
 }
