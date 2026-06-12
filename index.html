@@ -2,15 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<script>
-  // Route all applicants to the portal. Preserve ?src= so channel attribution
-  // flows through (e.g. careers.itsglocleaning.ca?src=indeed → portal?src=indeed).
-  // Defaults to src=careers for direct / untagged traffic.
-  (function () {
-    var src = new URLSearchParams(window.location.search).get('src') || 'careers';
-    window.location.replace('https://app.itsglocleaning.ca/apply/cleaner-toronto?src=' + encodeURIComponent(src));
-  })();
-</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>itsGLO Cleaning — Join Our Team</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
