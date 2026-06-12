@@ -2,6 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+  // Route all applicants to the portal. Preserve ?src= so channel attribution
+  // flows through (e.g. careers.itsglocleaning.ca?src=indeed → portal?src=indeed).
+  // Defaults to src=careers for direct / untagged traffic.
+  (function () {
+    var src = new URLSearchParams(window.location.search).get('src') || 'careers';
+    window.location.replace('https://app.itsglocleaning.ca/apply/cleaner-toronto?src=' + encodeURIComponent(src));
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>itsGLO Cleaning — Join Our Team</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -311,7 +320,7 @@
   <!-- ── STEP 5: EXPERIENCE ── -->
   <div class="step" id="step-5">
     <div class="card">
-      <div class="section-chip">🧹 <span data-t="exp_chip">Cleaning Experience</span></div>
+      <div class="section-chip"><span data-t="exp_chip">Cleaning Experience</span></div>
       <div class="q-label" data-t="exp_q">Do you have professional cleaning experience?</div>
       <div class="info-banner">
         <div class="banner-title" data-t="exp_note_title">Important note</div>
@@ -326,7 +335,7 @@
       <div id="exp-detail-wrap" style="display:none;margin-top:18px;">
         <div class="input-group">
           <label data-t="exp_company_label">Company or hotel name <span class="required">*</span></label>
-          <input type="text" id="exp-company" />
+          <input type="text" id="exp-company" oninput="this.style.borderColor=''" />
         </div>
         <div class="input-group">
           <label data-t="exp_location_label">Was this in Canada?</label>
@@ -337,7 +346,7 @@
         </div>
         <div class="input-group">
           <label data-t="exp_duration_label">How long did you work there?</label>
-          <input type="text" id="exp-duration" placeholder="e.g. 8 months, 2 years" />
+          <input type="text" id="exp-duration" placeholder="e.g. 8 months, 2 years" oninput="this.style.borderColor=''" />
         </div>
       </div>
       <div id="exp-none-wrap" style="display:none;margin-top:14px;">
@@ -345,7 +354,7 @@
       </div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-next" onclick="nextStep()" data-t="continue">Continue</button>
+        <button class="btn-next" onclick="checkExp()" data-t="continue">Continue</button>
       </div>
     </div>
   </div>
@@ -353,7 +362,7 @@
   <!-- ── STEP 6: AVAILABILITY ── -->
   <div class="step" id="step-6">
     <div class="card">
-      <div class="section-chip">📅 <span data-t="avail_chip">Availability</span></div>
+      <div class="section-chip"><span data-t="avail_chip">Availability</span></div>
       <div class="q-label" data-t="avail_q">Which days are you available to work?</div>
       <div class="info-banner">
         <div class="banner-title" data-t="avail_note_title">What we're looking for</div>
@@ -389,7 +398,7 @@
   <!-- ── STEP 7: PERSONAL INFO ── -->
   <div class="step" id="step-7">
     <div class="card">
-      <div class="section-chip">👤 <span data-t="personal_chip">Your Information</span></div>
+      <div class="section-chip"><span data-t="personal_chip">Your Information</span></div>
       <div class="q-label" data-t="personal_q">Tell us about yourself</div>
 
       <div class="input-group">
@@ -452,86 +461,11 @@
     </div>
   </div>
 
-  <!-- ── STEP 8: SCENARIO 1 — SICK DAY ── -->
+  <!-- ── STEP 8: ABOUT YOU ── -->
   <div class="step" id="step-8">
     <div class="card">
-      <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
-      <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
-      <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
-
-      <div class="input-group">
-        <label data-t="s1_label"><strong>1.</strong> You wake up feeling unwell on a workday. What do you do?</label>
-        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s1">
-          <button class="opt-btn" onclick="selectOption('s1','early-call',this)"><span class="check"></span><span data-t="s1a">I message or call my supervisor as early as possible — before the day starts</span></button>
-          <button class="opt-btn" onclick="selectOption('s1','try-anyway',this)"><span class="check"> </span><span data-t="s1b">I try to push through and come in unless it's really bad</span></button>
-          <button class="opt-btn" onclick="selectOption('s1','wait-see',this)"><span class="check"> </span><span data-t="s1c">I wait until I know for sure I can't make it, then I call</span></button>
-        </div>
-      </div>
-
-      <div class="nav-row">
-        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-next" onclick="checkScenario('s1')" data-t="continue">Continue</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── STEP 9: SCENARIO 2 — CLIENT COMPLAINT ── -->
-  <div class="step" id="step-9">
-    <div class="card">
-      <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
-      <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
-      <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
-
-      <div class="input-group">
-        <label data-t="s2_label"><strong>2.</strong> A client messages saying the bathroom wasn't cleaned properly. What do you do?</label>
-        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s2">
-          <button class="opt-btn" onclick="selectOption('s2','apologize-fix',this)"><span class="check"></span><span data-t="s2a">I apologize, ask for specifics, and tell my supervisor right away</span></button>
-          <button class="opt-btn" onclick="selectOption('s2','defend',this)"><span class="check"> </span><span data-t="s2b">I explain that I did clean it thoroughly</span></button>
-          <button class="opt-btn" onclick="selectOption('s2','ignore',this)"><span class="check"> </span><span data-t="s2c">I let my supervisor handle it</span></button>
-          <button class="opt-btn" onclick="selectOption('s2','inform-manager',this)"><span class="check"> </span><span data-t="s2d">I don't respond to the client, but I inform my manager right away — they can handle it better, and I use it as a learning moment</span></button>
-        </div>
-      </div>
-
-      <div class="nav-row">
-        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-next" onclick="checkScenario('s2')" data-t="continue">Continue</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── STEP 10: SCENARIO 3 — FEEDBACK ── -->
-  <div class="step" id="step-10">
-    <div class="card">
-      <div class="section-chip">🤔 <span data-t="scenarios_chip">How You Work</span></div>
-      <div class="q-label" data-t="scenarios_q">A few real scenarios — choose what you'd actually do</div>
-      <div class="q-sublabel" data-t="scenarios_sub">There are no trick questions. We want to understand how you think and communicate.</div>
-
-      <div class="input-group">
-        <label data-t="s4_label"><strong>3.</strong> Your supervisor asks you to redo something you thought you already did well. How do you react?</label>
-        <div class="options-grid cols-1" style="margin-top:8px;" id="q-s4">
-          <button class="opt-btn" onclick="selectOption('s4','redo-learn',this)"><span class="check"></span><span data-t="s4a">I redo it, and ask what I can do differently next time</span></button>
-          <button class="opt-btn" onclick="selectOption('s4','redo-quiet',this)"><span class="check"> </span><span data-t="s4b">I redo it without saying anything</span></button>
-          <button class="opt-btn" onclick="selectOption('s4','push-back',this)"><span class="check"> </span><span data-t="s4c">I'd explain why I thought it was already done right</span></button>
-        </div>
-      </div>
-
-      <div class="nav-row">
-        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-next" onclick="checkScenario('s4')" data-t="continue">Continue</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── STEP 11: ABOUT YOU ── -->
-  <div class="step" id="step-11">
-    <div class="card">
-      <div class="section-chip">⭐ <span data-t="about_chip">About You</span></div>
+      <div class="section-chip"><span data-t="about_chip">About You</span></div>
       <div class="q-label" data-t="about_q">A few more questions to get to know you</div>
-
-      <div class="input-group">
-        <label data-t="words_label">What 3 words would your last manager or employer use to describe you?</label>
-        <input type="text" id="three-words" placeholder="e.g. Reliable, fast, detail-oriented" />
-      </div>
 
       <div class="input-group">
         <label data-t="detail_label">On a scale of 1–5, how detail-oriented are you? (1 = not very, 5 = extremely)</label>
@@ -556,21 +490,33 @@
       </div>
 
       <div class="input-group">
+        <label>What is your expected monthly take-home pay? <span class="required">*</span></label>
+        <div class="options-grid cols-2" style="margin-top:8px;" id="q-expected-salary">
+          <button class="opt-btn" onclick="selectOption('expectedSalary','under-2k',this)"><span class="check"> </span><span>Under $2,000/mo</span></button>
+          <button class="opt-btn" onclick="selectOption('expectedSalary','2k-2500',this)"><span class="check"> </span><span>$2,000 – $2,500/mo</span></button>
+          <button class="opt-btn" onclick="selectOption('expectedSalary','2500-3k',this)"><span class="check"> </span><span>$2,500 – $3,000/mo</span></button>
+          <button class="opt-btn" onclick="selectOption('expectedSalary','3k-3500',this)"><span class="check"> </span><span>$3,000 – $3,500/mo</span></button>
+          <button class="opt-btn" onclick="selectOption('expectedSalary','over-3500',this)"><span class="check"> </span><span>Over $3,500/mo</span></button>
+        </div>
+        <div class="error-msg" id="err-salary" style="display:none;">Please select your expected monthly pay.</div>
+      </div>
+
+      <div class="input-group">
         <label data-t="reliable_q">Is there anything that might make it hard for you to show up consistently, Monday to Saturday? <span style="font-weight:400;color:var(--light)">(e.g. medical, personal commitments)</span></label>
         <textarea id="reliability-note" style="min-height:72px;" placeholder=""></textarea>
       </div>
 
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-next" onclick="nextStep()" data-t="continue">Continue</button>
+        <button class="btn-next" onclick="checkAbout()" data-t="continue">Continue</button>
       </div>
     </div>
   </div>
 
-  <!-- ── STEP 12: FAQ + SUBMIT ── -->
-  <div class="step" id="step-12">
+  <!-- ── STEP 9: FAQ + SUBMIT ── -->
+  <div class="step" id="step-9">
     <div class="card">
-      <div class="section-chip">❓ <span data-t="faq_chip">Common Questions</span></div>
+      <div class="section-chip"><span data-t="faq_chip">Common Questions</span></div>
       <div class="q-label" data-t="faq_q">Before you submit — things people often ask</div>
       <div id="faq-list"></div>
 
@@ -592,7 +538,7 @@
       <div id="err-submit" class="error-msg" style="margin-bottom:8px;"></div>
       <div class="nav-row">
         <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
-        <button class="btn-submit" onclick="submitForm()" data-t="submit_btn">🎉 Submit Application</button>
+        <button class="btn-submit" onclick="submitForm()" data-t="submit_btn">Submit Application</button>
       </div>
     </div>
   </div>
@@ -746,7 +692,7 @@ const T = {
     selfid_chip:'Optional — Voluntary Self-Identification',
     selfid_note:'This question is completely voluntary and will not affect your application in any way. We collect this information only to understand who is applying to itsGLO and to ensure we\'re reaching diverse communities.',
     ethnicity_label:'How would you describe your ethnic or cultural background? (optional)',
-    submit_btn:'🎉 Submit Application',
+    submit_btn:'Submit Application',
     back:'Back', continue:'Continue',
     sorry_title:"We're sorry — we can't move forward",
     sorry_sin:'Unfortunately, we are only able to hire individuals who have legal work authorization in Canada. We hope to hear from you once you have the proper documentation.',
@@ -760,7 +706,7 @@ const T = {
     ns2:'If shortlisted, we\'ll contact you by phone or email',
     ns3:'Next step: an in-person evaluation to see how you clean',
     ns4:'If the evaluation goes well, we move forward together',
-    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','Scenario 1','Scenario 2','Scenario 3','About you','Final review'],
+    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','About you','Final review'],
   },
   es: {
     hero_title:'Esto No Es Un Turno.<br><span>Es Un Trabajo Real.</span>',
@@ -855,7 +801,7 @@ const T = {
     selfid_chip:'Opcional — Auto-identificación Voluntaria',
     selfid_note:'Esta pregunta es completamente voluntaria y no afectará tu solicitud de ninguna manera. Recopilamos esta información únicamente para entender quién aplica a itsGLO y asegurarnos de llegar a comunidades diversas.',
     ethnicity_label:'¿Cómo describirías tu origen étnico o cultural? (opcional)',
-    submit_btn:'🎉 Enviar Solicitud',
+    submit_btn:'Enviar Solicitud',
     back:'Atrás', continue:'Continuar',
     sorry_title:'Lo sentimos — no podemos continuar',
     sorry_sin:'Desafortunadamente, solo podemos contratar a personas con autorización legal de trabajo en Canadá. Esperamos que puedas obtener la documentación adecuada y apliques de nuevo.',
@@ -869,7 +815,7 @@ const T = {
     ns2:'Si eres preseleccionado/a, te contactaremos por teléfono o correo',
     ns3:'Siguiente paso: una evaluación en persona para ver cómo limpias',
     ns4:'Si la evaluación va bien, avanzamos juntos',
-    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Escenario 1','Escenario 2','Escenario 3','Sobre ti','Revisión final'],
+    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Sobre ti','Revisión final'],
   }
 };
 
@@ -918,8 +864,9 @@ function prevStep() {
 }
 
 function updateProgress() {
-  const stepNum = typeof currentStep === 'number' ? currentStep : 12;
-  const pct = Math.min(100, Math.round((stepNum / 12) * 100));
+  // Steps are now: 0-7, 8 (about you), 9 (submit) = 10 positions total
+  const stepNum = typeof currentStep === 'number' ? currentStep : 9;
+  const pct = Math.min(100, Math.round((stepNum / 9) * 100));
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-pct').textContent = pct + '%';
   const labels = t('progress_labels');
@@ -1013,6 +960,36 @@ function showSorry(reason) {
   goToStep('sorry');
 }
 
+function checkExp() {
+  if (!answers.expType) return;
+  if (answers.expType !== 'none') {
+    const company = document.getElementById('exp-company') ? document.getElementById('exp-company').value.trim() : '';
+    const duration = document.getElementById('exp-duration') ? document.getElementById('exp-duration').value.trim() : '';
+    if (!company) {
+      document.getElementById('exp-company').focus();
+      document.getElementById('exp-company').style.borderColor = 'var(--red)';
+      return;
+    }
+    if (!duration) {
+      document.getElementById('exp-duration').focus();
+      document.getElementById('exp-duration').style.borderColor = 'var(--red)';
+      return;
+    }
+    answers.expCompany = company;
+    answers.expDuration = duration;
+  }
+  nextStep();
+}
+
+function checkAbout() {
+  if (!answers.expectedSalary) {
+    document.getElementById('err-salary').style.display = 'block';
+    return;
+  }
+  document.getElementById('err-salary').style.display = 'none';
+  nextStep();
+}
+
 function checkScenario(key) {
   if (!answers[key]) return;
   nextStep();
@@ -1092,7 +1069,6 @@ function toggleFaq(i) {
 //  SUBMIT
 // ═══════════════════════════════════════════
 async function submitForm() {
-  answers.threeWords     = document.getElementById('three-words').value.trim();
   answers.detailExample  = document.getElementById('detail-example').value.trim();
   answers.reliabilityNote= document.getElementById('reliability-note').value.trim();
   answers.extraNotes     = document.getElementById('extra-notes').value.trim();
@@ -1138,7 +1114,7 @@ async function submitForm() {
     s1_sickDay:      answers.s1,
     s2_clientComplaint: answers.s2,
     s3_feedback:     answers.s4,
-    threeWords:      answers.threeWords,
+    expectedSalary:  answers.expectedSalary,
     detailScale:     answers.detailScale,
     detailExample:   answers.detailExample,
     reliabilityNote: answers.reliabilityNote,
