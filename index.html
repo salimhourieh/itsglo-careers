@@ -250,13 +250,13 @@
       <div class="warning-banner" data-t="sin_warn">We only hire people with legal work status in Canada. A valid work permit, PR, or citizenship is required — no exceptions.</div>
 
       <div class="options-grid cols-2">
-        <button class="opt-btn" id="sin-yes" onclick="selectOption('sin','yes',this)"><span class="check"></span><span data-t="yes_i_do">Yes, I do</span></button>
-        <button class="opt-btn" id="sin-no"  onclick="selectOption('sin','no', this)"><span class="check"> </span><span data-t="no_i_dont">No, I don't</span></button>
+        <button class="opt-btn" id="sin-yes" onclick="selectOption('sin','yes',this); document.getElementById('visa-wrap').style.display='block'"><span class="check"></span><span data-t="yes_i_do">Yes, I do</span></button>
+        <button class="opt-btn" id="sin-no"  onclick="selectOption('sin','no', this); document.getElementById('visa-wrap').style.display='none'"><span class="check"> </span><span data-t="no_i_dont">No, I don't</span></button>
       </div>
 
       <div class="input-group" id="visa-wrap" style="display:none;margin-top:18px;">
         <label data-t="visa_label">What type of work authorization do you have? <span class="required">*</span></label>
-        <select id="visa-type" onchange="answers.visaType=this.value">
+        <select id="visa-type" onchange="answers.visaType=this.value; document.getElementById('visa-warn').style.display='none'">
           <option value="" data-t="select_opt">— Select —</option>
           <option value="citizen" data-t="visa_citizen">Canadian Citizen</option>
           <option value="pr" data-t="visa_pr">Permanent Resident (PR)</option>
@@ -265,6 +265,7 @@
           <option value="student" data-t="visa_student">Student Visa (with work authorization)</option>
           <option value="other" data-t="visa_other">Other</option>
         </select>
+        <div id="visa-warn" class="warning-banner" style="display:none;margin-top:10px;" data-t="visa_required">Please select your work authorization to continue.</div>
       </div>
 
       <div class="nav-row">
@@ -609,6 +610,7 @@ const T = {
     sin_warn:'We only hire people with legal work status in Canada. A valid work permit, PR, or citizenship is required — no exceptions.',
     yes_i_do:'Yes, I do', no_i_dont:"No, I don't",
     visa_label:'What type of work authorization do you have?',
+    visa_required:'Please select your work authorization to continue.',
     select_opt:'— Select —', visa_citizen:'Canadian Citizen', visa_pr:'Permanent Resident (PR)',
     visa_owp:'Open Work Permit', visa_ewp:'Employer-Specific Work Permit',
     visa_student:'Student Visa (with work authorization)', visa_other:'Other',
@@ -719,6 +721,7 @@ const T = {
     sin_warn:'Solo contratamos personas con estatus legal de trabajo en Canadá. Se requiere permiso de trabajo válido, PR o ciudadanía — sin excepciones.',
     yes_i_do:'Sí, tengo', no_i_dont:'No, no tengo',
     visa_label:'¿Qué tipo de autorización de trabajo tienes?',
+    visa_required:'Por favor selecciona tu autorización de trabajo para continuar.',
     select_opt:'— Selecciona —', visa_citizen:'Ciudadano/a Canadiense', visa_pr:'Residente Permanente (PR)',
     visa_owp:'Permiso de Trabajo Abierto', visa_ewp:'Permiso de Trabajo para Empleador Específico',
     visa_student:'Visa de Estudiante (con autorización de trabajo)', visa_other:'Otro',
@@ -963,11 +966,14 @@ function checkGate(field) {
   // show visa dropdown when sin=yes
   if (field === 'sin') {
     if (!answers.sin) return;
-    if (answers.sin === 'yes') {
-      document.getElementById('visa-wrap').style.display = 'block';
-      nextStep(); return;
-    }
     if (answers.sin === 'no') { showSorry('sin'); return; }
+    // sin === 'yes' — work authorization is required, can't be skipped.
+    document.getElementById('visa-wrap').style.display = 'block';
+    if (!answers.visaType) {
+      document.getElementById('visa-warn').style.display = 'block';
+      return;
+    }
+    nextStep(); return;
   }
   if (field === 'physical') {
     if (!answers.physical) return;
