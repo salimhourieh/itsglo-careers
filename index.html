@@ -97,6 +97,10 @@
   .lang-btn:hover { border-color:var(--teal); transform:translateY(-2px); box-shadow:0 8px 24px rgba(77,200,160,.15); }
   .lang-btn .lang-flag { font-size:30px; display:block; margin-bottom:8px; }
   .lang-btn .lang-sub { font-size:12px; font-weight:400; color:var(--light); margin-top:4px; }
+  .landing-points { list-style:none; padding:0; margin:4px 0 16px; display:flex; flex-direction:column; gap:13px; }
+  .landing-points li { display:flex; align-items:flex-start; gap:11px; font-size:14px; line-height:1.5; color:var(--dark); }
+  .landing-points li i { color:var(--teal-dark); font-size:19px; flex-shrink:0; margin-top:1px; }
+  .landing-cta-label { display:flex; align-items:center; justify-content:center; gap:7px; text-align:center; font-size:12.5px; font-weight:600; color:var(--teal-dark); background:rgba(77,200,160,.12); border-radius:100px; padding:9px 14px; }
 
   .nav-row { display:flex; gap:12px; margin-top:26px; align-items:center; }
   .btn-back { padding:13px 20px; border:2px solid #E8EDF2; border-radius:10px; background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--light); cursor:pointer; transition:all .18s; white-space:nowrap; }
@@ -165,9 +169,9 @@
 
 <div class="hero">
   <div class="hero-logo">itsGLO Cleaning · Careers</div>
-  <div class="apply-badge"><i class="bi bi-pencil-square"></i> <span data-t="apply_badge">Job Application — Apply Now</span></div>
-  <h1 data-t="hero_title">Apply to Join itsGLO.<br><span>This Isn't a Shift — It's a Real Job.</span></h1>
-  <p>Most cleaning companies hand you shifts and send you home. At itsGLO, you have a stable full-time role with real training, real systems, and a team that invests in your growth.</p>
+  <div class="apply-badge"><i class="bi bi-megaphone-fill"></i> <span data-t="apply_badge">Now Hiring · Toronto</span></div>
+  <h1 data-t="hero_title">Are You Looking for a Full-Time Cleaning Career —<br><span>Not Just Random Shifts?</span></h1>
+  <p>itsGLO is hiring reliable cleaners in Toronto for stable, full-time roles — with real training, steady pay every other Friday, and a clear path to grow. If you show up and take pride in your work, you'll build a career here, not chase shifts.</p>
   <div class="hero-pills">
     <span class="pill"><i class="bi bi-geo-alt-fill"></i> Toronto, ON</span>
     <span class="pill"><i class="bi bi-clock-fill"></i> Full-Time Role</span>
@@ -189,16 +193,24 @@
   <!-- ── STEP 0: LANGUAGE ── -->
   <div class="step active" id="step-0">
     <div class="card">
-      <div class="q-label" style="text-align:center;margin-bottom:6px;">Select your language</div>
-      <div class="q-sublabel" style="text-align:center;">Selecciona tu idioma</div>
-      <div class="options-grid cols-2" style="margin-top:20px;">
+      <div class="section-chip" style="margin:0 auto 16px;"><i class="bi bi-stars"></i> Why people apply to itsGLO</div>
+      <ul class="landing-points">
+        <li><i class="bi bi-calendar-check"></i> <span>A <strong>set weekly schedule</strong> — not random shifts you find out about last-minute</span></li>
+        <li><i class="bi bi-cash-stack"></i> <span>Reliable pay <strong>every other Friday</strong>, with paid travel time between jobs</span></li>
+        <li><i class="bi bi-mortarboard-fill"></i> <span>Real <strong>training and checklists</strong> — we teach you how we work, you don't guess</span></li>
+        <li><i class="bi bi-graph-up-arrow"></i> <span>We <strong>promote from within</strong> — show up and take pride, and you grow here</span></li>
+      </ul>
+      <div class="landing-cta-label"><i class="bi bi-clock"></i> Takes about 3 minutes · No resume needed · Apply from your phone</div>
+      <div class="q-label" style="text-align:center;margin:20px 0 4px;">Start your application</div>
+      <div class="q-sublabel" style="text-align:center;">Choose your language to begin · Elige tu idioma</div>
+      <div class="options-grid cols-2" style="margin-top:6px;">
         <button class="lang-btn" onclick="selectLanguage('en')">
-          <i class="bi bi-flag-fill" style="font-size:14px;margin-right:4px;"></i>English
-          <div class="lang-sub">Continue in English</div>
+          <i class="bi bi-flag-fill" style="font-size:14px;margin-right:4px;"></i>Apply in English
+          <div class="lang-sub">Start in English →</div>
         </button>
         <button class="lang-btn" onclick="selectLanguage('es')">
-          <i class="bi bi-globe" style="font-size:14px;margin-right:4px;"></i>Español
-          <div class="lang-sub">Continuar en Español</div>
+          <i class="bi bi-globe" style="font-size:14px;margin-right:4px;"></i>Aplicar en Español
+          <div class="lang-sub">Comenzar en Español →</div>
         </button>
       </div>
     </div>
