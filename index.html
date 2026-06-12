@@ -809,6 +809,42 @@ const T = {
 function t(key) { return (T[lang] && T[lang][key]) || T.en[key] || key; }
 
 // ═══════════════════════════════════════════
+//  PORTAL INTEGRATION  (role · invite · editable copy)
+// ═══════════════════════════════════════════
+// The portal (people-portal) is the source of truth for which role this
+// page submits to, and for the editable question copy. Everything here
+// degrades gracefully: if the portal is unreachable the page keeps its
+// baked-in strings and the hardcoded default role, so the funnel never
+// breaks on a cold start.
+const _params = new URLSearchParams(location.search);
+const ROLE = (_params.get('role') || 'cleaner-toronto').replace(/[^a-z0-9-]/gi, '') || 'cleaner-toronto';
+const INVITE = (_params.get('invite') || '').trim();   // pre-vetted candidate → skip knockouts
+const SRC = (_params.get('src') || '').slice(0, 64);   // channel attribution (indeed/facebook/…)
+const PORTAL_API_BASE = 'https://itsglo-backend.onrender.com/api/v1';
+// Eligibility, physical, getting-around — the knockout steps. Hidden for
+// invited (already-screened) candidates so they go straight to the real
+// questions, mirroring the portal's skip-screening invite.
+const KNOCKOUT_STEPS = [2, 3, 4];
+
+// Pull admin-edited question copy and overlay it on the baked-in T dict.
+function loadPortalCopy() {
+  try {
+    fetch(PORTAL_API_BASE + '/intake/website/' + encodeURIComponent(ROLE) + '/schema/', { mode: 'cors' })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !data.copy) return;
+        ['en', 'es'].forEach(function (loc) {
+          if (data.copy[loc] && T[loc]) Object.assign(T[loc], data.copy[loc]);
+        });
+        // If they've already passed the language picker, re-render with the
+        // freshly merged copy.
+        if (currentStep !== 0) { applyTranslations(); buildFAQ(); }
+      })
+      .catch(function () {});
+  } catch (e) { /* never let copy loading break the page */ }
+}
+
+// ═══════════════════════════════════════════
 //  LANGUAGE
 // ═══════════════════════════════════════════
 function selectLanguage(l) {
@@ -843,11 +879,18 @@ function goToStep(n) {
   updateProgress();
 }
 
-function nextStep() { goToStep(currentStep + 1); }
+function nextStep() {
+  let n = (typeof currentStep === 'number' ? currentStep : 0) + 1;
+  // Invited candidates are pre-vetted — skip the knockout steps entirely.
+  if (INVITE) { while (KNOCKOUT_STEPS.includes(n)) n++; }
+  goToStep(n);
+}
 function prevStep() {
   if (currentStep === 'sorry' || currentStep === 'thanks') return;
   if (currentStep <= 1) { goToStep(1); return; }
-  goToStep(currentStep - 1);
+  let n = currentStep - 1;
+  if (INVITE) { while (KNOCKOUT_STEPS.includes(n) && n > 1) n--; }
+  goToStep(n);
 }
 
 function updateProgress() {
@@ -1076,7 +1119,7 @@ async function submitForm() {
   // and stores every Q&A on applications.screening_responses).
   // INTAKE_KEY is matched against settings.WEBSITE_INTAKE_KEY on the
   // backend — friction barrier against random spam, not a true secret.
-  const PORTAL_INTAKE_URL = 'https://itsglo-backend.onrender.com/api/v1/intake/website/cleaner-toronto/';
+  const PORTAL_INTAKE_URL = PORTAL_API_BASE + '/intake/website/' + encodeURIComponent(ROLE) + '/';
   const PORTAL_INTAKE_KEY = 'l6bOsT27Ws1XXESGe2CXqGBAXcyRsEOm_lUN6ziSTsI';
   // Backup: legacy Google Apps Script — keeps the spreadsheet filling
   // during cutover so nothing is lost. Remove once portal is verified.
@@ -1115,6 +1158,8 @@ async function submitForm() {
     reliabilityNote: answers.reliabilityNote,
     extraNotes:      answers.extraNotes,
     ethnicity:       answers.ethnicity,
+    src:             SRC,      // channel attribution
+    invite:          INVITE,   // pre-vetted candidate token (if any)
   };
 
   // Fire both submissions in parallel. Portal first (CORS so we know
@@ -1144,6 +1189,7 @@ async function submitForm() {
 // Init
 buildFAQ();
 updateProgress();
+loadPortalCopy();
 </script>
 </body>
 </html>
