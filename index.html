@@ -332,9 +332,10 @@
         <div class="input-group">
           <label data-t="exp_location_label">Was this in Canada?</label>
           <div class="options-grid cols-2" style="margin-top:0;">
-            <button class="opt-btn" onclick="selectOption('expCanada','yes',this)"><span class="check"></span><span data-t="yes">Yes</span></button>
-            <button class="opt-btn" onclick="selectOption('expCanada','no',this)"><span class="check"> </span><span data-t="no">No</span></button>
+            <button class="opt-btn" onclick="selectOption('expCanada','yes',this);document.getElementById('exp-canada-err').style.display='none'"><span class="check"></span><span data-t="yes">Yes</span></button>
+            <button class="opt-btn" onclick="selectOption('expCanada','no',this);document.getElementById('exp-canada-err').style.display='none'"><span class="check"> </span><span data-t="no">No</span></button>
           </div>
+          <div class="error-msg" id="exp-canada-err" style="display:none;">Please select yes or no.</div>
         </div>
         <div class="input-group">
           <label data-t="exp_duration_label">How long did you work there?</label>
@@ -483,14 +484,8 @@
 
       <div class="input-group">
         <label>What is your expected monthly take-home pay? <span class="required">*</span></label>
-        <div class="options-grid cols-2" style="margin-top:8px;" id="q-expected-salary">
-          <button class="opt-btn" onclick="selectOption('expectedSalary','under-2k',this)"><span class="check"> </span><span>Under $2,000/mo</span></button>
-          <button class="opt-btn" onclick="selectOption('expectedSalary','2k-2500',this)"><span class="check"> </span><span>$2,000 – $2,500/mo</span></button>
-          <button class="opt-btn" onclick="selectOption('expectedSalary','2500-3k',this)"><span class="check"> </span><span>$2,500 – $3,000/mo</span></button>
-          <button class="opt-btn" onclick="selectOption('expectedSalary','3k-3500',this)"><span class="check"> </span><span>$3,000 – $3,500/mo</span></button>
-          <button class="opt-btn" onclick="selectOption('expectedSalary','over-3500',this)"><span class="check"> </span><span>Over $3,500/mo</span></button>
-        </div>
-        <div class="error-msg" id="err-salary" style="display:none;">Please select your expected monthly pay.</div>
+        <input type="text" id="expected-salary" placeholder="e.g. $2,500/month" oninput="answers.expectedSalary=this.value;this.style.borderColor=''" />
+        <div class="error-msg" id="err-salary" style="display:none;">Please enter your expected monthly pay.</div>
       </div>
 
       <div class="input-group">
@@ -962,6 +957,10 @@ function checkExp() {
       document.getElementById('exp-company').style.borderColor = 'var(--red)';
       return;
     }
+    if (!answers.expCanada) {
+      document.getElementById('exp-canada-err').style.display = 'block';
+      return;
+    }
     if (!duration) {
       document.getElementById('exp-duration').focus();
       document.getElementById('exp-duration').style.borderColor = 'var(--red)';
@@ -974,8 +973,10 @@ function checkExp() {
 }
 
 function checkAbout() {
-  if (!answers.expectedSalary) {
+  answers.expectedSalary = (document.getElementById('expected-salary') || {}).value || '';
+  if (!answers.expectedSalary.trim()) {
     document.getElementById('err-salary').style.display = 'block';
+    document.getElementById('expected-salary').focus();
     return;
   }
   document.getElementById('err-salary').style.display = 'none';
