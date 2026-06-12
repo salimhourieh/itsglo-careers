@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>itsGLO Cleaning — Join Our Team</title>
+<title>Apply Now — itsGLO Cleaning Job Application</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
@@ -33,6 +33,8 @@
   .hero::before { content:''; position:absolute; top:-60px; right:-80px; width:300px; height:300px; background:radial-gradient(circle,rgba(77,200,160,.18) 0%,transparent 70%); border-radius:50%; }
   .hero::after  { content:''; position:absolute; bottom:-40px; left:-60px; width:240px; height:240px; background:radial-gradient(circle,rgba(77,200,160,.08) 0%,transparent 70%); border-radius:50%; }
   .hero-logo { font-family:'Sora',sans-serif; font-size:13px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+  .apply-badge { display:inline-flex; align-items:center; gap:8px; background:var(--teal); color:#0D2B1E; font-family:'Sora',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:10px 22px; border-radius:100px; margin-bottom:18px; box-shadow:0 6px 20px rgba(77,200,160,.4); }
+  .apply-badge i { font-size:16px; }
   .hero h1 { font-family:'Sora',sans-serif; font-size:clamp(26px,6vw,40px); font-weight:700; line-height:1.15; margin-bottom:16px; }
   .hero h1 span { color:var(--teal); }
   .hero p { font-size:15px; color:rgba(255,255,255,.75); max-width:500px; margin:0 auto; line-height:1.7; }
@@ -162,8 +164,9 @@
 <body>
 
 <div class="hero">
-  <div class="hero-logo">itsGLO Cleaning</div>
-  <h1 data-t="hero_title">This Isn't a Shift.<br><span>It's a Real Job.</span></h1>
+  <div class="hero-logo">itsGLO Cleaning · Careers</div>
+  <div class="apply-badge"><i class="bi bi-pencil-square"></i> <span data-t="apply_badge">Job Application — Apply Now</span></div>
+  <h1 data-t="hero_title">Apply to Join itsGLO.<br><span>This Isn't a Shift — It's a Real Job.</span></h1>
   <p>Most cleaning companies hand you shifts and send you home. At itsGLO, you have a stable full-time role with real training, real systems, and a team that invests in your growth.</p>
   <div class="hero-pills">
     <span class="pill"><i class="bi bi-geo-alt-fill"></i> Toronto, ON</span>
@@ -587,7 +590,8 @@ const answers = {
 // ═══════════════════════════════════════════
 const T = {
   en: {
-    hero_title:"This Isn't a Shift.<br><span>It's a Real Job.</span>",
+    apply_badge:'Job Application — Apply Now',
+    hero_title:"Apply to Join itsGLO.<br><span>This Isn't a Shift — It's a Real Job.</span>",
     about_role:'About the Role', job_title:"Here's exactly what this job looks like",
     job_subtitle:'We believe in full transparency. Read this before applying.',
     sell_title:'A stable job, not random shifts',
@@ -696,7 +700,8 @@ const T = {
     progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','About you','Final review'],
   },
   es: {
-    hero_title:'Esto No Es Un Turno.<br><span>Es Un Trabajo Real.</span>',
+    apply_badge:'Solicitud de Empleo — Aplica Ahora',
+    hero_title:'Aplica para Unirte a itsGLO.<br><span>Esto No Es Un Turno — Es Un Trabajo Real.</span>',
     about_role:'Sobre el Trabajo', job_title:'Así es exactamente este trabajo',
     job_subtitle:'Creemos en la transparencia total. Léelo antes de aplicar.',
     sell_title:'Un trabajo estable, no turnos al azar',
