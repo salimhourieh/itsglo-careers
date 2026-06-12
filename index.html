@@ -477,28 +477,6 @@
       <div class="q-label" data-t="about_q">A few more questions to get to know you</div>
 
       <div class="input-group">
-        <label data-t="detail_label">On a scale of 1–5, how detail-oriented are you? (1 = not very, 5 = extremely)</label>
-        <div class="scale-row" style="margin-top:10px;" id="detail-scale">
-          <button class="scale-btn" onclick="setScale('detail',1,this)">1</button>
-          <button class="scale-btn" onclick="setScale('detail',2,this)">2</button>
-          <button class="scale-btn" onclick="setScale('detail',3,this)">3</button>
-          <button class="scale-btn" onclick="setScale('detail',4,this)">4</button>
-          <button class="scale-btn" onclick="setScale('detail',5,this)">5</button>
-        </div>
-        <input type="text" id="detail-example" style="margin-top:10px;" placeholder="Give a quick example of why you chose that number..." />
-      </div>
-
-      <div class="input-group">
-        <label data-t="avail_hours_label">Roughly how many hours per week are you hoping to work?</label>
-        <div class="options-grid cols-2" style="margin-top:8px;" id="q-hours">
-          <button class="opt-btn" onclick="selectOption('hours','20-30',this)"><span class="check"> </span><span>20–30 hrs/week</span></button>
-          <button class="opt-btn" onclick="selectOption('hours','30-40',this)"><span class="check"> </span><span>30–40 hrs/week</span></button>
-          <button class="opt-btn" onclick="selectOption('hours','40+',this)"><span class="check"> </span><span>40+ hrs/week</span></button>
-          <button class="opt-btn" onclick="selectOption('hours','flexible',this)"><span class="check"> </span><span data-t="flex_hours">Whatever you need</span></button>
-        </div>
-      </div>
-
-      <div class="input-group">
         <label>What is your expected monthly take-home pay? <span class="required">*</span></label>
         <input type="text" id="expected-salary" placeholder="e.g. $2,500/month" oninput="answers.expectedSalary=this.value;this.style.borderColor=''" />
         <div class="error-msg" id="err-salary" style="display:none;">Please enter your expected monthly pay.</div>
@@ -1130,7 +1108,6 @@ function toggleFaq(i) {
 //  SUBMIT
 // ═══════════════════════════════════════════
 async function submitForm() {
-  answers.detailExample  = document.getElementById('detail-example').value.trim();
   answers.reliabilityNote= document.getElementById('reliability-note').value.trim();
   answers.extraNotes     = document.getElementById('extra-notes').value.trim();
   answers.ethnicity      = document.getElementById('ethnicity').value.trim();
