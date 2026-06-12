@@ -950,22 +950,24 @@ function showSorry(reason) {
 function checkExp() {
   if (!answers.expType) return;
   if (answers.expType !== 'none') {
-    const company = document.getElementById('exp-company') ? document.getElementById('exp-company').value.trim() : '';
-    const duration = document.getElementById('exp-duration') ? document.getElementById('exp-duration').value.trim() : '';
+    const companyEl = document.getElementById('exp-company');
+    const durationEl = document.getElementById('exp-duration');
+    const company = companyEl ? companyEl.value.trim() : '';
+    const duration = durationEl ? durationEl.value.trim() : '';
+    let ok = true;
     if (!company) {
-      document.getElementById('exp-company').focus();
-      document.getElementById('exp-company').style.borderColor = 'var(--red)';
-      return;
+      companyEl.style.borderColor = 'var(--red)';
+      ok = false;
     }
     if (!answers.expCanada) {
       document.getElementById('exp-canada-err').style.display = 'block';
-      return;
+      ok = false;
     }
     if (!duration) {
-      document.getElementById('exp-duration').focus();
-      document.getElementById('exp-duration').style.borderColor = 'var(--red)';
-      return;
+      durationEl.style.borderColor = 'var(--red)';
+      ok = false;
     }
+    if (!ok) return;
     answers.expCompany = company;
     answers.expDuration = duration;
   }
