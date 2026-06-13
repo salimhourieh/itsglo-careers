@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Apply Now — itsGLO Cleaning Job Application</title>
+<link rel="icon" type="image/png" href="itsglo-logo.png">
+<link rel="apple-touch-icon" href="itsglo-logo.png">
+<meta property="og:title" content="itsGLO Cleaning — Now Hiring Full-Time Cleaners in Toronto">
+<meta property="og:description" content="$20–25/hr based on experience. Stable full-time cleaning roles, paid every other Friday. Apply in 3 minutes.">
+<meta property="og:image" content="itsglo-logo.png">
+<meta name="theme-color" content="#0D2B1E">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
@@ -101,6 +107,20 @@
   .landing-points li { display:flex; align-items:flex-start; gap:11px; font-size:14px; line-height:1.5; color:var(--dark); }
   .landing-points li i { color:var(--teal-dark); font-size:19px; flex-shrink:0; margin-top:1px; }
   .landing-cta-label { display:flex; align-items:center; justify-content:center; gap:7px; text-align:center; font-size:12.5px; font-weight:600; color:var(--teal-dark); background:rgba(77,200,160,.12); border-radius:100px; padding:9px 14px; }
+  .pill-pay { background:var(--teal); color:#0D2B1E; border-color:var(--teal); font-weight:700; }
+  .pay-banner { background:linear-gradient(135deg,var(--teal-dark) 0%,#0D2B1E 100%); border-radius:16px; padding:20px 18px; text-align:center; color:#fff; margin-bottom:18px; }
+  .pay-main { font-family:'Sora',sans-serif; font-size:38px; font-weight:700; line-height:1; color:#fff; }
+  .pay-main span { font-size:18px; font-weight:500; color:var(--teal); }
+  .pay-sub { font-size:13px; color:rgba(255,255,255,.8); margin-top:6px; }
+  .pay-row { display:flex; flex-wrap:wrap; gap:8px 16px; justify-content:center; margin-top:14px; font-size:12.5px; font-weight:600; color:var(--teal); }
+  .pay-row i { margin-right:4px; }
+  .landing-points .es { font-weight:400; font-size:12.5px; color:var(--light); }
+  .referral-box { margin-top:18px; padding:16px; background:rgba(77,200,160,.10); border:1px dashed var(--teal); border-radius:12px; text-align:left; }
+  .referral-box p { font-size:13px; color:var(--dark); line-height:1.5; margin:6px 0 0; }
+  .hero-logo-img { width:180px; max-width:58%; height:auto; margin:0 auto 18px; display:block; filter:drop-shadow(0 2px 8px rgba(0,0,0,.25)); }
+  .brand-recall { display:flex; flex-direction:column; align-items:center; gap:10px; margin:20px 0 4px; padding:18px 16px; background:#F7FAF9; border:1px solid #EAF1EE; border-radius:12px; }
+  .recall-logo { width:140px; height:auto; }
+  .brand-recall div { font-size:13px; color:var(--dark); line-height:1.5; text-align:center; }
 
   .nav-row { display:flex; gap:12px; margin-top:26px; align-items:center; }
   .btn-back { padding:13px 20px; border:2px solid #E8EDF2; border-radius:10px; background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--light); cursor:pointer; transition:all .18s; white-space:nowrap; }
@@ -168,14 +188,15 @@
 <body>
 
 <div class="hero">
-  <div class="hero-logo">itsGLO Cleaning · Careers</div>
+  <img class="hero-logo-img" src="itsglo-logo-white.png" alt="itsGLO Cleaning" />
   <div class="apply-badge"><i class="bi bi-megaphone-fill"></i> <span data-t="apply_badge">Now Hiring · Toronto</span></div>
   <h1 data-t="hero_title">Are You Looking for a Full-Time Cleaning Career —<br><span>Not Just Random Shifts?</span></h1>
-  <p>itsGLO is hiring reliable cleaners in Toronto for stable, full-time roles — with real training, steady pay every other Friday, and a clear path to grow. If you show up and take pride in your work, you'll build a career here, not chase shifts.</p>
+  <p>itsGLO is hiring reliable cleaners in Toronto for stable, full-time roles — earning <strong style="color:#fff">$20–25/hr based on experience</strong>, with real training, paid travel time, and a clear path to grow. Full-time cleaners take home $2,500–$4,000/month, paid every other Friday.</p>
   <div class="hero-pills">
     <span class="pill"><i class="bi bi-geo-alt-fill"></i> Toronto, ON</span>
-    <span class="pill"><i class="bi bi-clock-fill"></i> Full-Time Role</span>
-    <span class="pill"><i class="bi bi-cash-coin"></i> Paid Every Other Friday</span>
+    <span class="pill pill-pay"><i class="bi bi-cash-coin"></i> $20–25/hr</span>
+    <span class="pill pill-pay"><i class="bi bi-wallet2"></i> $2,500–$4,000/mo full-time</span>
+    <span class="pill"><i class="bi bi-clock-fill"></i> Paid Biweekly</span>
     <span class="pill"><i class="bi bi-graph-up-arrow"></i> Room to Grow</span>
   </div>
 </div>
@@ -193,15 +214,21 @@
   <!-- ── STEP 0: LANGUAGE ── -->
   <div class="step active" id="step-0">
     <div class="card">
-      <div class="section-chip" style="margin:0 auto 16px;"><i class="bi bi-stars"></i> Why people apply to itsGLO</div>
+      <div class="pay-banner">
+        <div class="pay-main">$20–25<span>/hr</span></div>
+        <div class="pay-sub">based on experience · según tu experiencia</div>
+        <div class="pay-row">
+          <span><i class="bi bi-wallet2"></i> Full-time $2,500–$4,000/mo</span>
+          <span><i class="bi bi-cash-coin"></i> Paid every other Friday</span>
+        </div>
+      </div>
       <ul class="landing-points">
-        <li><i class="bi bi-calendar-check"></i> <span>A <strong>set weekly schedule</strong> — not random shifts you find out about last-minute</span></li>
-        <li><i class="bi bi-cash-stack"></i> <span>Reliable pay <strong>every other Friday</strong>, with paid travel time between jobs</span></li>
-        <li><i class="bi bi-mortarboard-fill"></i> <span>Real <strong>training and checklists</strong> — we teach you how we work, you don't guess</span></li>
-        <li><i class="bi bi-graph-up-arrow"></i> <span>We <strong>promote from within</strong> — show up and take pride, and you grow here</span></li>
+        <li><i class="bi bi-calendar-check"></i> <span><strong>Set weekly schedule</strong>, not random shifts<br><span class="es">Horario semanal fijo, no turnos al azar</span></span></li>
+        <li><i class="bi bi-bag-check-fill"></i> <span><strong>All supplies provided</strong> + paid travel time<br><span class="es">Equipo incluido y tiempo de viaje pagado</span></span></li>
+        <li><i class="bi bi-graph-up-arrow"></i> <span><strong>We promote from within</strong> — grow here<br><span class="es">Promovemos desde adentro — crece aquí</span></span></li>
       </ul>
-      <div class="landing-cta-label"><i class="bi bi-clock"></i> Takes about 3 minutes · No resume needed · Apply from your phone</div>
-      <div class="q-label" style="text-align:center;margin:20px 0 4px;">Start your application</div>
+      <div class="landing-cta-label"><i class="bi bi-clock"></i> ~3 min · No resume needed · Sin currículum</div>
+      <div class="q-label" style="text-align:center;margin:20px 0 4px;">Start your application · Comienza tu solicitud</div>
       <div class="q-sublabel" style="text-align:center;">Choose your language to begin · Elige tu idioma</div>
       <div class="options-grid cols-2" style="margin-top:6px;">
         <button class="lang-btn" onclick="selectLanguage('en')">
@@ -239,6 +266,7 @@
       </div>
 
       <ul class="checklist">
+        <li><span class="icon"><i class="bi bi-cash-coin"></i></span> <span data-t="cl_pay"><strong>$20–25/hr based on experience.</strong> Full-time cleaners earn $2,500–$4,000/month, paid every other Friday — plus paid travel time between jobs.</span></li>
         <li><span class="icon"><i class="bi bi-house-fill"></i></span> <span data-t="cl1">Professional condo & home cleaning — structured checklists for every job</span></li>
         <li><span class="icon"><i class="bi bi-clipboard-check"></i></span> <span data-t="cl2">3 types: Routine cleans, Deep cleans, Move-In / Move-Out cleans</span></li>
         <li><span class="icon"><i class="bi bi-clock"></i></span> <span data-t="cl3">Typical hours: 8:30 AM – 5:30 PM. Some days end earlier or later.</span></li>
@@ -542,6 +570,10 @@
         <div class="big-check">✓</div>
         <h2 data-t="thanks_title">Application Received!</h2>
         <p data-t="thanks_body">Thank you for applying to itsGLO Cleaning. Our team reviews every application personally. If your profile is a strong fit, we'll reach out within a few business days to schedule the next step.</p>
+        <div class="brand-recall">
+          <img src="itsglo-logo.png" alt="itsGLO Cleaning" class="recall-logo" />
+          <div data-t="recall_line">When we call you, it will be from <strong>itsGLO Cleaning</strong> — save the name and watch for our call. 📞</div>
+        </div>
         <div class="next-steps">
           <div class="ns-title" data-t="whats_next">What happens next</div>
           <ul>
@@ -550,6 +582,10 @@
             <li data-t="ns3">Next step: an in-person evaluation to see how you clean</li>
             <li data-t="ns4">If the evaluation goes well, we move forward together</li>
           </ul>
+        </div>
+        <div class="referral-box">
+          <div class="ns-title" data-t="referral_title">Know someone great?</div>
+          <p data-t="referral_line">Good cleaners know good cleaners. Share this link and help a friend find a real job: <strong>careers.itsglocleaning.ca</strong></p>
         </div>
       </div>
     </div>
@@ -587,6 +623,7 @@ const T = {
     job_subtitle:'We believe in full transparency. Read this before applying.',
     sell_title:'A stable job, not random shifts',
     sell_body:"Most cleaning companies call you when they need you. At itsGLO, you have a set schedule, a reliable income, and a team behind you. We train you properly, give you checklists, and promote from within. If you show up consistently and take pride in your work — you will grow here.",
+    cl_pay:'<strong>$20–25/hr based on experience.</strong> Full-time cleaners earn $2,500–$4,000/month, paid every other Friday — plus paid travel time between jobs.',
     cl1:'Professional condo & home cleaning — structured checklists for every job',
     cl2:'3 types: Routine cleans, Deep cleans, Move-In / Move-Out cleans',
     cl3:'Typical hours: 8:30 AM – 5:30 PM. Some days end earlier or later.',
@@ -689,6 +726,9 @@ const T = {
     ns2:'If shortlisted, we\'ll contact you by phone or email',
     ns3:'Next step: an in-person evaluation to see how you clean',
     ns4:'If the evaluation goes well, we move forward together',
+    recall_line:'When we call you, it will be from <strong>itsGLO Cleaning</strong> — save the name and watch for our call. 📞',
+    referral_title:'Know someone great?',
+    referral_line:'Good cleaners know good cleaners. Share this link and help a friend find a real job: <strong>careers.itsglocleaning.ca</strong>',
     progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','About you','Final review'],
   },
   es: {
@@ -698,6 +738,7 @@ const T = {
     job_subtitle:'Creemos en la transparencia total. Léelo antes de aplicar.',
     sell_title:'Un trabajo estable, no turnos al azar',
     sell_body:'La mayoría de empresas de limpieza te llaman cuando te necesitan. En itsGLO tienes un horario fijo, ingresos estables y un equipo que te respalda. Te entrenamos bien, te damos listas de verificación y promovemos desde adentro. Si te presentas con constancia y te enorgulleces de tu trabajo — crecerás aquí.',
+    cl_pay:'<strong>$20–25/hora según tu experiencia.</strong> Los limpiadores de tiempo completo ganan $2,500–$4,000/mes, pago cada dos viernes — más tiempo de viaje pagado entre trabajos.',
     cl1:'Limpieza profesional de condos y casas — listas de verificación para cada trabajo',
     cl2:'3 tipos: Limpiezas rutinarias, Profundas y Mudanzas',
     cl3:'Horario típico: 8:30 AM – 5:30 PM. Algunos días terminan antes o después.',
@@ -800,6 +841,9 @@ const T = {
     ns2:'Si eres preseleccionado/a, te contactaremos por teléfono o correo',
     ns3:'Siguiente paso: una evaluación en persona para ver cómo limpias',
     ns4:'Si la evaluación va bien, avanzamos juntos',
+    recall_line:'Cuando te llamemos, será de parte de <strong>itsGLO Cleaning</strong> — guarda el nombre y espera nuestra llamada. 📞',
+    referral_title:'¿Conoces a alguien excelente?',
+    referral_line:'Los buenos limpiadores conocen a otros buenos limpiadores. Comparte este enlace y ayuda a un amigo a encontrar un trabajo de verdad: <strong>careers.itsglocleaning.ca</strong>',
     progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Sobre ti','Revisión final'],
   }
 };
