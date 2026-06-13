@@ -121,6 +121,12 @@
   .brand-recall { display:flex; flex-direction:column; align-items:center; gap:10px; margin:20px 0 4px; padding:18px 16px; background:#F7FAF9; border:1px solid #EAF1EE; border-radius:12px; }
   .recall-logo { width:140px; height:auto; }
   .brand-recall div { font-size:13px; color:var(--dark); line-height:1.5; text-align:center; }
+  .hero { position:relative; }
+  .lang-toggle { position:absolute; top:14px; right:14px; display:flex; background:rgba(255,255,255,.12); border-radius:100px; padding:3px; z-index:5; }
+  .lang-toggle button { border:none; background:transparent; color:rgba(255,255,255,.7); font-family:'Sora',sans-serif; font-size:12px; font-weight:700; letter-spacing:.5px; padding:5px 13px; border-radius:100px; cursor:pointer; transition:all .18s; }
+  .lang-toggle button.active { background:#fff; color:var(--teal-dark); }
+  .btn-apply-now { width:100%; margin-top:16px; padding:17px 24px; border:none; border-radius:12px; background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); color:#fff; font-family:'Sora',sans-serif; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 20px rgba(77,200,160,.4); transition:all .2s; }
+  .btn-apply-now:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(77,200,160,.5); }
 
   .nav-row { display:flex; gap:12px; margin-top:26px; align-items:center; }
   .btn-back { padding:13px 20px; border:2px solid #E8EDF2; border-radius:10px; background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--light); cursor:pointer; transition:all .18s; white-space:nowrap; }
@@ -188,16 +194,20 @@
 <body>
 
 <div class="hero">
+  <div class="lang-toggle">
+    <button id="lt-en" onclick="setLang('en')">EN</button>
+    <button id="lt-es" onclick="setLang('es')">ES</button>
+  </div>
   <img class="hero-logo-img" src="itsglo-logo-white.png" alt="itsGLO Cleaning" />
   <div class="apply-badge"><i class="bi bi-megaphone-fill"></i> <span data-t="apply_badge">Now Hiring · Toronto</span></div>
   <h1 data-t="hero_title">Are You Looking for a Full-Time Cleaning Career —<br><span>Not Just Random Shifts?</span></h1>
-  <p>itsGLO is hiring reliable cleaners in Toronto for stable, full-time roles — earning <strong style="color:#fff">$20–25/hr based on experience</strong>, with real training, paid travel time, and a clear path to grow. Full-time cleaners take home $2,500–$4,000/month, paid every other Friday.</p>
+  <p data-t="hero_sub">itsGLO is hiring reliable cleaners in Toronto for stable, full-time roles — earning <strong style="color:#fff">$20–25/hr based on experience</strong>, with real training, paid travel time, and a clear path to grow. Full-time cleaners take home $2,500–$4,000/month, paid every other Friday.</p>
   <div class="hero-pills">
     <span class="pill"><i class="bi bi-geo-alt-fill"></i> Toronto, ON</span>
     <span class="pill pill-pay"><i class="bi bi-cash-coin"></i> $20–25/hr</span>
-    <span class="pill pill-pay"><i class="bi bi-wallet2"></i> $2,500–$4,000/mo full-time</span>
-    <span class="pill"><i class="bi bi-clock-fill"></i> Paid Biweekly</span>
-    <span class="pill"><i class="bi bi-graph-up-arrow"></i> Room to Grow</span>
+    <span class="pill pill-pay"><i class="bi bi-wallet2"></i> <span data-t="pill_month">$2,500–$4,000/mo full-time</span></span>
+    <span class="pill"><i class="bi bi-clock-fill"></i> <span data-t="pill_biweekly">Paid Biweekly</span></span>
+    <span class="pill"><i class="bi bi-graph-up-arrow"></i> <span data-t="pill_grow">Room to Grow</span></span>
   </div>
 </div>
 
@@ -216,30 +226,19 @@
     <div class="card">
       <div class="pay-banner">
         <div class="pay-main">$20–25<span>/hr</span></div>
-        <div class="pay-sub">based on experience · según tu experiencia</div>
+        <div class="pay-sub" data-t="pay_sub">based on experience</div>
         <div class="pay-row">
-          <span><i class="bi bi-wallet2"></i> Full-time $2,500–$4,000/mo</span>
-          <span><i class="bi bi-cash-coin"></i> Paid every other Friday</span>
+          <span><i class="bi bi-wallet2"></i> <span data-t="pay_row_month">Full-time $2,500–$4,000/mo</span></span>
+          <span><i class="bi bi-cash-coin"></i> <span data-t="pay_row_friday">Paid every other Friday</span></span>
         </div>
       </div>
       <ul class="landing-points">
-        <li><i class="bi bi-calendar-check"></i> <span><strong>Set weekly schedule</strong>, not random shifts<br><span class="es">Horario semanal fijo, no turnos al azar</span></span></li>
-        <li><i class="bi bi-bag-check-fill"></i> <span><strong>All supplies provided</strong> + paid travel time<br><span class="es">Equipo incluido y tiempo de viaje pagado</span></span></li>
-        <li><i class="bi bi-graph-up-arrow"></i> <span><strong>We promote from within</strong> — grow here<br><span class="es">Promovemos desde adentro — crece aquí</span></span></li>
+        <li><i class="bi bi-calendar-check"></i> <span data-t="lp1"><strong>Set weekly schedule</strong>, not random shifts</span></li>
+        <li><i class="bi bi-bag-check-fill"></i> <span data-t="lp2"><strong>All supplies provided</strong> + paid travel time</span></li>
+        <li><i class="bi bi-graph-up-arrow"></i> <span data-t="lp3"><strong>We promote from within</strong> — grow here</span></li>
       </ul>
-      <div class="landing-cta-label"><i class="bi bi-clock"></i> ~3 min · No resume needed · Sin currículum</div>
-      <div class="q-label" style="text-align:center;margin:20px 0 4px;">Start your application · Comienza tu solicitud</div>
-      <div class="q-sublabel" style="text-align:center;">Choose your language to begin · Elige tu idioma</div>
-      <div class="options-grid cols-2" style="margin-top:6px;">
-        <button class="lang-btn" onclick="selectLanguage('en')">
-          <i class="bi bi-flag-fill" style="font-size:14px;margin-right:4px;"></i>Apply in English
-          <div class="lang-sub">Start in English →</div>
-        </button>
-        <button class="lang-btn" onclick="selectLanguage('es')">
-          <i class="bi bi-globe" style="font-size:14px;margin-right:4px;"></i>Aplicar en Español
-          <div class="lang-sub">Comenzar en Español →</div>
-        </button>
-      </div>
+      <div class="landing-cta-label"><i class="bi bi-clock"></i> <span data-t="cta_label">~3 min · No resume needed</span></div>
+      <button class="btn-apply-now" onclick="startApplication()" data-t="apply_now">Apply Now →</button>
     </div>
   </div>
 
@@ -617,8 +616,13 @@ const answers = {
 // ═══════════════════════════════════════════
 const T = {
   en: {
-    apply_badge:'Job Application — Apply Now',
-    hero_title:"Apply to Join itsGLO.<br><span>This Isn't a Shift — It's a Real Job.</span>",
+    apply_badge:'Now Hiring · Toronto',
+    hero_title:"Are You Looking for a Full-Time Cleaning Career —<br><span>Not Just Random Shifts?</span>",
+    hero_sub:'itsGLO is hiring reliable cleaners in Toronto for stable, full-time roles — earning <strong style="color:#fff">$20–25/hr based on experience</strong>, with real training, paid travel time, and a clear path to grow. Full-time cleaners take home $2,500–$4,000/month, paid every other Friday.',
+    pill_month:'$2,500–$4,000/mo full-time', pill_biweekly:'Paid Biweekly', pill_grow:'Room to Grow',
+    pay_sub:'based on experience', pay_row_month:'Full-time $2,500–$4,000/mo', pay_row_friday:'Paid every other Friday',
+    lp1:'<strong>Set weekly schedule</strong>, not random shifts', lp2:'<strong>All supplies provided</strong> + paid travel time', lp3:'<strong>We promote from within</strong> — grow here',
+    cta_label:'~3 min · No resume needed', apply_now:'Apply Now →',
     about_role:'About the Role', job_title:"Here's exactly what this job looks like",
     job_subtitle:'We believe in full transparency. Read this before applying.',
     sell_title:'A stable job, not random shifts',
@@ -732,8 +736,13 @@ const T = {
     progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','About you','Final review'],
   },
   es: {
-    apply_badge:'Solicitud de Empleo — Aplica Ahora',
-    hero_title:'Aplica para Unirte a itsGLO.<br><span>Esto No Es Un Turno — Es Un Trabajo Real.</span>',
+    apply_badge:'Contratando Ahora · Toronto',
+    hero_title:'¿Buscas una Carrera de Limpieza de Tiempo Completo —<br><span>No Solo Turnos al Azar?</span>',
+    hero_sub:'itsGLO está contratando limpiadores confiables en Toronto para puestos estables de tiempo completo — ganando <strong style="color:#fff">$20–25/hora según tu experiencia</strong>, con capacitación real, tiempo de viaje pagado y un camino claro para crecer. Los limpiadores de tiempo completo ganan $2,500–$4,000/mes, pago cada dos viernes.',
+    pill_month:'$2,500–$4,000/mes tiempo completo', pill_biweekly:'Pago Quincenal', pill_grow:'Espacio para Crecer',
+    pay_sub:'según tu experiencia', pay_row_month:'Tiempo completo $2,500–$4,000/mes', pay_row_friday:'Pago cada dos viernes',
+    lp1:'<strong>Horario semanal fijo</strong>, no turnos al azar', lp2:'<strong>Equipo incluido</strong> + tiempo de viaje pagado', lp3:'<strong>Promovemos desde adentro</strong> — crece aquí',
+    cta_label:'~3 min · Sin currículum', apply_now:'Aplicar Ahora →',
     about_role:'Sobre el Trabajo', job_title:'Así es exactamente este trabajo',
     job_subtitle:'Creemos en la transparencia total. Léelo antes de aplicar.',
     sell_title:'Un trabajo estable, no turnos al azar',
@@ -894,6 +903,25 @@ function selectLanguage(l) {
   answers.language = l;
   applyTranslations();
   buildFAQ();
+  goToStep(1);
+}
+
+// Corner EN|ES toggle — switches language in place, does NOT advance.
+function setLang(l) {
+  lang = l;
+  answers.language = l;
+  applyTranslations();
+  buildFAQ();
+  updateLangToggle();
+}
+function updateLangToggle() {
+  var en = document.getElementById('lt-en'), es = document.getElementById('lt-es');
+  if (en) en.classList.toggle('active', lang === 'en');
+  if (es) es.classList.toggle('active', lang === 'es');
+}
+// Single "Apply Now" CTA — language is already chosen (auto-detected or toggled).
+function startApplication() {
+  answers.language = lang;
   goToStep(1);
 }
 
@@ -1231,6 +1259,15 @@ async function submitForm() {
 }
 
 // Init
+// Auto-detect Spanish browsers so the landing renders in the right language
+// immediately. The corner toggle lets anyone switch.
+try {
+  var _bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
+  if (_bl.indexOf('es') === 0) lang = 'es';
+} catch (e) { /* default to English */ }
+answers.language = lang;
+applyTranslations();
+updateLangToggle();
 buildFAQ();
 updateProgress();
 loadPortalCopy();
