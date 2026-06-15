@@ -445,9 +445,14 @@
       <div class="q-label" data-t="personal_q">Tell us about yourself</div>
 
       <div class="input-group">
-        <label data-t="name_label">Full Name <span class="required">*</span></label>
-        <input type="text" id="full-name" />
-        <div class="error-msg" id="err-name" data-t="err_name">Please enter your full name.</div>
+        <label data-t="firstname_label">First Name <span class="required">*</span></label>
+        <input type="text" id="first-name" />
+        <div class="error-msg" id="err-first-name" data-t="err_firstname">Please enter your first name.</div>
+      </div>
+      <div class="input-group">
+        <label data-t="lastname_label">Last Name <span class="required">*</span></label>
+        <input type="text" id="last-name" />
+        <div class="error-msg" id="err-last-name" data-t="err_lastname">Please enter your last name.</div>
       </div>
       <div class="input-group">
         <label data-t="phone_label">Phone Number <span class="required">*</span></label>
@@ -686,14 +691,16 @@ const T = {
     flex_some:'Somewhat flexible — with enough notice',
     flex_fixed:'Not very flexible — my schedule is fixed',
     personal_chip:'Your Information', personal_q:'Tell us about yourself',
-    name_label:'Full Name', phone_label:'Phone Number', email_label:'Email Address',
+    firstname_label:'First Name', lastname_label:'Last Name',
+    phone_label:'Phone Number', email_label:'Email Address',
     area_label:'Which area of Toronto do you live in?',
     lang_spoken_label:'What languages do you speak?',
     gender_label:'Gender',
     gender_woman:'Woman', gender_man:'Man', gender_nonbinary:'Non-binary',
     gender_self:'Prefer to self-describe', gender_notdisclose:'Wish not to disclose',
     err_gender:'Please select your gender.',
-    err_name:'Please enter your full name.', err_phone:'Please enter your phone number.',
+    err_firstname:'Please enter your first name.', err_lastname:'Please enter your last name.',
+    err_phone:'Please enter your phone number.',
     err_email:'Please enter a valid email address.', err_area:'Please select your area.',
     scenarios_chip:'How You Work',
     scenarios_q:'A few real scenarios — choose what you\'d actually do',
@@ -806,14 +813,16 @@ const T = {
     flex_some:'Algo flexible — con suficiente aviso',
     flex_fixed:'Poco flexible — mi horario es fijo',
     personal_chip:'Tu Información', personal_q:'Cuéntanos sobre ti',
-    name_label:'Nombre Completo', phone_label:'Número de Teléfono', email_label:'Correo Electrónico',
+    firstname_label:'Nombre', lastname_label:'Apellido',
+    phone_label:'Número de Teléfono', email_label:'Correo Electrónico',
     area_label:'¿En qué zona de Toronto vives?',
     lang_spoken_label:'¿Qué idiomas hablas?',
     gender_label:'Género',
     gender_woman:'Mujer', gender_man:'Hombre', gender_nonbinary:'No binario',
     gender_self:'Prefiero autodescribirme', gender_notdisclose:'Prefiero no indicarlo',
     err_gender:'Por favor selecciona tu género.',
-    err_name:'Por favor ingresa tu nombre completo.', err_phone:'Por favor ingresa tu teléfono.',
+    err_firstname:'Por favor ingresa tu nombre.', err_lastname:'Por favor ingresa tu apellido.',
+    err_phone:'Por favor ingresa tu teléfono.',
     err_email:'Por favor ingresa un correo válido.', err_area:'Por favor selecciona tu zona.',
     scenarios_chip:'Cómo Trabajas',
     scenarios_q:'Algunos escenarios reales — elige lo que harías',
@@ -1135,21 +1144,23 @@ function checkDays() {
 // ═══════════════════════════════════════════
 function validatePersonal() {
   let ok = true;
-  const name   = document.getElementById('full-name').value.trim();
+  const first  = document.getElementById('first-name').value.trim();
+  const last   = document.getElementById('last-name').value.trim();
   const phone  = document.getElementById('phone').value.trim();
   const email  = document.getElementById('email').value.trim();
   const area   = document.getElementById('area').value;
   const gender = document.getElementById('gender').value;
 
   const toggle = (id, show) => document.getElementById(id).classList.toggle('visible', show);
-  toggle('err-name',  !name);    if (!name)  ok = false;
+  toggle('err-first-name', !first); if (!first) ok = false;
+  toggle('err-last-name',  !last);  if (!last)  ok = false;
   toggle('err-phone', !phone);   if (!phone) ok = false;
   toggle('err-email', !email || !email.includes('@')); if (!email || !email.includes('@')) ok = false;
   toggle('err-area',   !area);    if (!area)   ok = false;
   toggle('err-gender', !gender);  if (!gender) ok = false;
 
   if (ok) {
-    answers.fullName = name; answers.phone = phone;
+    answers.fullName = (first + ' ' + last).trim(); answers.phone = phone;
     answers.email = email;   answers.area  = area;
     answers.gender = gender;
     answers.languages = document.getElementById('languages').value.trim();
