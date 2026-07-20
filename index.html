@@ -14,19 +14,19 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
   :root {
-    --teal: #4DC8A0;
+    --teal: #2E9670;
     --teal-dark: #1E7A5A;
-    --teal-light: #E6F7F1;
-    --gold: #4DC8A0;
+    --teal-light: #EAF4EF;
+    --gold: #D99A34;
     --dark: #0D2B1E;
     --mid: #2D5C42;
     --light: #7AAD93;
-    --bg: #F2FAF6;
+    --bg: #F4F8F6;
     --white: #FFFFFF;
     --red: #D64545;
     --red-light: #FFF0EF;
-    --green: #4DC8A0;
-    --card-shadow: 0 4px 24px rgba(13,43,30,0.10);
+    --green: #2E9670;
+    --card-shadow: 0 2px 16px rgba(13,43,30,0.07);
     --radius: 16px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +39,7 @@
   .hero::before { content:''; position:absolute; top:-60px; right:-80px; width:300px; height:300px; background:radial-gradient(circle,rgba(77,200,160,.18) 0%,transparent 70%); border-radius:50%; }
   .hero::after  { content:''; position:absolute; bottom:-40px; left:-60px; width:240px; height:240px; background:radial-gradient(circle,rgba(77,200,160,.08) 0%,transparent 70%); border-radius:50%; }
   .hero-logo { font-family:'Sora',sans-serif; font-size:13px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
-  .apply-badge { display:inline-flex; align-items:center; gap:8px; background:var(--teal); color:#0D2B1E; font-family:'Sora',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:10px 22px; border-radius:100px; margin-bottom:18px; box-shadow:0 6px 20px rgba(77,200,160,.4); }
+  .apply-badge { display:inline-flex; align-items:center; gap:8px; background:var(--teal); color:#fff; font-family:'Sora',sans-serif; font-size:14px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:10px 22px; border-radius:100px; margin-bottom:18px; box-shadow:0 2px 8px rgba(13,43,30,.12); }
   .apply-badge i { font-size:16px; }
   .hero h1 { font-family:'Sora',sans-serif; font-size:clamp(26px,6vw,40px); font-weight:700; line-height:1.15; margin-bottom:16px; }
   .hero h1 span { color:var(--teal); }
@@ -50,7 +50,7 @@
   .progress-wrap { background:white; padding:14px 24px; border-bottom:1px solid #E8EDF2; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.06); }
   .progress-label { display:flex; justify-content:space-between; font-size:12px; color:var(--light); margin-bottom:8px; font-weight:500; }
   .progress-bar { height:6px; background:#E8EDF2; border-radius:100px; overflow:hidden; }
-  .progress-fill { height:100%; background:linear-gradient(90deg,var(--teal),var(--teal-dark)); border-radius:100px; transition:width .5s cubic-bezier(.4,0,.2,1); }
+  .progress-fill { height:100%; background:var(--teal); border-radius:100px; transition:width .5s cubic-bezier(.4,0,.2,1); }
 
   .form-wrap { max-width:640px; margin:0 auto; padding:32px 16px 80px; }
 
@@ -75,7 +75,7 @@
     font-family:'DM Sans',sans-serif; font-size:15px; color:var(--dark); background:#FAFBFC;
     transition:border-color .2s,box-shadow .2s; outline:none; appearance:none; -webkit-appearance:none;
   }
-  input:focus,textarea:focus,select:focus { border-color:var(--teal); box-shadow:0 0 0 4px rgba(77,200,160,.1); background:white; }
+  input:focus,textarea:focus,select:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(46,150,112,.14); background:white; }
   textarea { resize:vertical; min-height:90px; }
   .input-group { margin-bottom:18px; }
   .input-group label { display:block; font-size:13px; font-weight:500; color:var(--mid); margin-bottom:7px; }
@@ -125,8 +125,8 @@
   .lang-toggle { position:absolute; top:14px; right:14px; display:flex; background:rgba(255,255,255,.12); border-radius:100px; padding:3px; z-index:5; }
   .lang-toggle button { border:none; background:transparent; color:rgba(255,255,255,.7); font-family:'Sora',sans-serif; font-size:12px; font-weight:700; letter-spacing:.5px; padding:5px 13px; border-radius:100px; cursor:pointer; transition:all .18s; }
   .lang-toggle button.active { background:#fff; color:var(--teal-dark); }
-  .btn-apply-now { width:100%; margin-top:16px; padding:17px 24px; border:none; border-radius:12px; background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); color:#fff; font-family:'Sora',sans-serif; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 6px 20px rgba(77,200,160,.4); transition:all .2s; }
-  .btn-apply-now:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(77,200,160,.5); }
+  .btn-apply-now { width:100%; margin-top:16px; padding:17px 24px; border:none; border-radius:12px; background:var(--teal-dark); color:#fff; font-family:'Sora',sans-serif; font-size:17px; font-weight:700; cursor:pointer; box-shadow:0 2px 8px rgba(13,43,30,.14); transition:all .18s; }
+  .btn-apply-now:hover { background:#1a6c4f; box-shadow:0 4px 14px rgba(13,43,30,.18); }
   .hero.hide { display:none; }
   .form-topbar { position:sticky; top:0; z-index:20; display:flex; align-items:center; justify-content:center; background:#0D2B1E; padding:11px; box-shadow:0 2px 12px rgba(0,0,0,.15); }
   .form-topbar img { height:24px; width:auto; }
@@ -134,10 +134,10 @@
   .nav-row { display:flex; gap:12px; margin-top:26px; align-items:center; }
   .btn-back { padding:13px 20px; border:2px solid #E8EDF2; border-radius:10px; background:transparent; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; color:var(--light); cursor:pointer; transition:all .18s; white-space:nowrap; }
   .btn-back:hover { border-color:var(--mid); color:var(--mid); }
-  .btn-next { flex:1; padding:15px 24px; border:none; border-radius:10px; background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); color:white; font-family:'Sora',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s; box-shadow:0 4px 14px rgba(77,200,160,.3); }
-  .btn-next:hover { transform:translateY(-1px); box-shadow:0 6px 20px rgba(77,200,160,.4); }
-  .btn-submit { flex:1; padding:15px 24px; border:none; border-radius:10px; background:linear-gradient(135deg,var(--teal-dark) 0%,#0D2B1E 100%); color:white; font-family:'Sora',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all .2s; box-shadow:0 4px 14px rgba(30,122,90,.35); }
-  .btn-submit:hover { transform:translateY(-1px); }
+  .btn-next { flex:1; padding:15px 24px; border:none; border-radius:10px; background:var(--teal-dark); color:white; font-family:'Sora',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all .18s; box-shadow:0 1px 2px rgba(13,43,30,.10); }
+  .btn-next:hover { background:#1a6c4f; box-shadow:0 3px 10px rgba(13,43,30,.14); }
+  .btn-submit { flex:1; padding:15px 24px; border:none; border-radius:10px; background:var(--teal-dark); color:white; font-family:'Sora',sans-serif; font-size:15px; font-weight:600; cursor:pointer; transition:all .18s; box-shadow:0 1px 2px rgba(13,43,30,.10); }
+  .btn-submit:hover { background:#1a6c4f; box-shadow:0 3px 10px rgba(13,43,30,.14); }
 
   /* Sorry screen */
   .sorry-screen { text-align:center; padding:16px 0; }
@@ -384,8 +384,25 @@
     </div>
   </div>
 
-  <!-- ── STEP 5: EXPERIENCE ── -->
+  <!-- ── STEP 5: SMARTPHONE + DATA (knockout) ── -->
   <div class="step" id="step-5">
+    <div class="card">
+      <div class="section-chip"><i class="bi bi-phone"></i> <span data-t="phone_chip">Phone & Data</span></div>
+      <div class="q-label" data-t="smartphone_q">Do you have a smartphone with a data plan?</div>
+      <div class="info-banner" data-t="smartphone_detail">You'll check in and out of every job and get your daily schedule on our app, so a working smartphone with mobile data is required. An iPad or flip phone won't work for this.</div>
+      <div class="options-grid cols-1">
+        <button class="opt-btn" onclick="selectOption('smartphone','yes',this)"><span class="check"></span><span data-t="smartphone_yes">Yes — I have a smartphone with data</span></button>
+        <button class="opt-btn" onclick="selectOption('smartphone','no',this)"><span class="check"> </span><span data-t="smartphone_no">No — I don't have one right now</span></button>
+      </div>
+      <div class="nav-row">
+        <button class="btn-back" onclick="prevStep()" data-t="back">Back</button>
+        <button class="btn-next" onclick="checkGate('smartphone')" data-t="continue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STEP 6: EXPERIENCE ── -->
+  <div class="step" id="step-6">
     <div class="card">
       <div class="section-chip"><span data-t="exp_chip">Cleaning Experience</span></div>
       <div class="q-label" data-t="exp_q">Do you have professional cleaning experience?</div>
@@ -405,7 +422,7 @@
           <input type="text" id="exp-company" oninput="this.style.borderColor=''" />
         </div>
         <div class="input-group">
-          <label data-t="exp_location_label">Was this in Canada?</label>
+          <label data-t="exp_location_label">Was this in Canada? <span class="required">*</span></label>
           <div class="options-grid cols-2" style="margin-top:0;">
             <button class="opt-btn" onclick="selectOption('expCanada','yes',this);document.getElementById('exp-canada-err').style.display='none'"><span class="check"></span><span data-t="yes">Yes</span></button>
             <button class="opt-btn" onclick="selectOption('expCanada','no',this);document.getElementById('exp-canada-err').style.display='none'"><span class="check"> </span><span data-t="no">No</span></button>
@@ -413,7 +430,7 @@
           <div class="error-msg" id="exp-canada-err" style="display:none;">Please select yes or no.</div>
         </div>
         <div class="input-group">
-          <label data-t="exp_duration_label">How long did you work there?</label>
+          <label data-t="exp_duration_label">How long did you work there? <span class="required">*</span></label>
           <input type="text" id="exp-duration" placeholder="e.g. 8 months, 2 years" oninput="this.style.borderColor=''" />
         </div>
       </div>
@@ -427,8 +444,8 @@
     </div>
   </div>
 
-  <!-- ── STEP 6: AVAILABILITY ── -->
-  <div class="step" id="step-6">
+  <!-- ── STEP 7: AVAILABILITY ── -->
+  <div class="step" id="step-7">
     <div class="card">
       <div class="section-chip"><span data-t="avail_chip">Availability</span></div>
       <div class="q-label" data-t="avail_q">Which days are you available to work?</div>
@@ -447,13 +464,14 @@
       </div>
       <div id="days-warn" style="display:none;" class="warning-banner" data-t="days_warn">We require at least 5 days of availability. Please select more days.</div>
 
-      <div class="input-group" style="margin-top:16px;">
-        <label data-t="flex_q">How flexible are you with your schedule if we need you on a different day occasionally?</label>
+      <div class="input-group" style="margin-top:20px;">
+        <label data-t="schedule_confirm_label">Both our full-time and part-time roles require all 5 days a week. Which can you commit to? <span class="required">*</span></label>
         <div class="options-grid cols-1" style="margin-top:8px;">
-          <button class="opt-btn" onclick="selectOption('flexibility','very',this)"><span class="check"></span><span data-t="flex_very">Very flexible — I can adjust when needed</span></button>
-          <button class="opt-btn" onclick="selectOption('flexibility','some',this)"><span class="check"> </span><span data-t="flex_some">Somewhat flexible — with enough notice</span></button>
-          <button class="opt-btn" onclick="selectOption('flexibility','fixed',this)"><span class="check"> </span><span data-t="flex_fixed">Not very flexible — my schedule is fixed</span></button>
+          <button class="opt-btn" onclick="selectOption('scheduleCommit','full-time',this)"><span class="check"></span><span data-t="schedule_full">Full-time — 9:00 AM to 5:30 PM, 5 days a week</span></button>
+          <button class="opt-btn" onclick="selectOption('scheduleCommit','part-time',this)"><span class="check"> </span><span data-t="schedule_part">Part-time — 9:00 AM to 2:00 PM, 5 days a week</span></button>
+          <button class="opt-btn" onclick="selectOption('scheduleCommit','no',this)"><span class="check"> </span><span data-t="schedule_no">I can't commit to 5 days a week</span></button>
         </div>
+        <div id="schedule-warn" style="display:none;margin-top:10px;" class="warning-banner" data-t="schedule_warn">Please choose the schedule you can commit to.</div>
       </div>
 
       <div class="nav-row">
@@ -463,27 +481,32 @@
     </div>
   </div>
 
-  <!-- ── STEP 7: PERSONAL INFO ── -->
-  <div class="step" id="step-7">
+  <!-- ── STEP 8: PERSONAL INFO ── -->
+  <div class="step" id="step-8">
     <div class="card">
       <div class="section-chip"><span data-t="personal_chip">Your Information</span></div>
       <div class="q-label" data-t="personal_q">Tell us about yourself</div>
 
-      <div class="input-group">
-        <label data-t="firstname_label">First Name <span class="required">*</span></label>
-        <input type="text" id="first-name" />
-        <div class="error-msg" id="err-first-name" data-t="err_firstname">Please enter your first name.</div>
-      </div>
-      <div class="input-group">
-        <label data-t="lastname_label">Last Name <span class="required">*</span></label>
-        <input type="text" id="last-name" />
-        <div class="error-msg" id="err-last-name" data-t="err_lastname">Please enter your last name.</div>
+      <!-- Name + phone together -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+        <div class="input-group" style="margin-bottom:0;">
+          <label data-t="firstname_label">First Name <span class="required">*</span></label>
+          <input type="text" id="first-name" />
+          <div class="error-msg" id="err-first-name" data-t="err_firstname">Please enter your first name.</div>
+        </div>
+        <div class="input-group" style="margin-bottom:0;">
+          <label data-t="lastname_label">Last Name <span class="required">*</span></label>
+          <input type="text" id="last-name" />
+          <div class="error-msg" id="err-last-name" data-t="err_lastname">Please enter your last name.</div>
+        </div>
       </div>
       <div class="input-group">
         <label data-t="phone_label">Phone Number <span class="required">*</span></label>
         <input type="tel" id="phone" placeholder="416-555-1234" />
         <div class="error-msg" id="err-phone" data-t="err_phone">Please enter your phone number.</div>
       </div>
+
+      <!-- Email on its own -->
       <div class="input-group">
         <label data-t="email_label">Email Address <span class="required">*</span></label>
         <input type="email" id="email" placeholder="you@example.com" />
@@ -510,21 +533,24 @@
         </select>
         <div class="error-msg" id="err-area" data-t="err_area">Please select your area.</div>
       </div>
-      <div class="input-group">
-        <label data-t="lang_spoken_label">What languages do you speak?</label>
-        <input type="text" id="languages" placeholder="e.g. English, Spanish, Portuguese, Tagalog" />
-      </div>
-      <div class="input-group">
-        <label data-t="gender_label">Gender <span class="required">*</span></label>
-        <select id="gender" onchange="answers.gender=this.value">
-          <option value="" data-t="select_opt">— Select —</option>
-          <option value="woman" data-t="gender_woman">Woman</option>
-          <option value="man" data-t="gender_man">Man</option>
-          <option value="non-binary" data-t="gender_nonbinary">Non-binary</option>
-          <option value="self-describe" data-t="gender_self">Prefer to self-describe</option>
-          <option value="not-disclose" data-t="gender_notdisclose">Wish not to disclose</option>
-        </select>
-        <div class="error-msg" id="err-gender" data-t="err_gender">Please select your gender.</div>
+      <!-- Languages + gender together -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;">
+        <div class="input-group" style="margin-bottom:0;">
+          <label data-t="lang_spoken_label">What languages do you speak?</label>
+          <input type="text" id="languages" placeholder="e.g. English, Spanish" />
+        </div>
+        <div class="input-group" style="margin-bottom:0;">
+          <label data-t="gender_label">Gender <span class="required">*</span></label>
+          <select id="gender" onchange="answers.gender=this.value">
+            <option value="" data-t="select_opt">— Select —</option>
+            <option value="woman" data-t="gender_woman">Woman</option>
+            <option value="man" data-t="gender_man">Man</option>
+            <option value="non-binary" data-t="gender_nonbinary">Non-binary</option>
+            <option value="self-describe" data-t="gender_self">Prefer to self-describe</option>
+            <option value="not-disclose" data-t="gender_notdisclose">Wish not to disclose</option>
+          </select>
+          <div class="error-msg" id="err-gender" data-t="err_gender">Please select your gender.</div>
+        </div>
       </div>
 
       <div class="nav-row">
@@ -534,8 +560,8 @@
     </div>
   </div>
 
-  <!-- ── STEP 8: ABOUT YOU ── -->
-  <div class="step" id="step-8">
+  <!-- ── STEP 9: ABOUT YOU ── -->
+  <div class="step" id="step-9">
     <div class="card">
       <div class="section-chip"><span data-t="about_chip">About You</span></div>
       <div class="q-label" data-t="about_q">A few more questions to get to know you</div>
@@ -558,8 +584,8 @@
     </div>
   </div>
 
-  <!-- ── STEP 9: FAQ + SUBMIT ── -->
-  <div class="step" id="step-9">
+  <!-- ── STEP 10: FAQ + SUBMIT ── -->
+  <div class="step" id="step-10">
     <div class="card">
       <div class="section-chip"><span data-t="faq_chip">Common Questions</span></div>
       <div class="q-label" data-t="faq_q">Before you submit — things people often ask</div>
@@ -637,9 +663,9 @@ let lang = 'en';
 let currentStep = 0;
 
 const answers = {
-  language:'', sin:'', visaType:'', physical:'', ttc:'',
+  language:'', sin:'', visaType:'', physical:'', ttc:'', smartphone:'',
   expType:'', expCompany:'', expCanada:'', expDuration:'',
-  days:[], flexibility:'',
+  days:[], scheduleCommit:'',
   fullName:'', phone:'', email:'', area:'', languages:'',
   s1:'', s2:'', s4:'',
   threeWords:'', detailScale:'', detailExample:'',
@@ -693,6 +719,11 @@ const T = {
     ttc_opt1:'Yes — I use TTC and I\'m comfortable with Google Maps',
     ttc_opt2:'Yes — I have my own vehicle',
     ttc_opt3:"No — I'm not able to navigate independently",
+    phone_chip:'Phone & Data',
+    smartphone_q:'Do you have a smartphone with a data plan?',
+    smartphone_detail:"You'll check in and out of every job and get your daily schedule on our app, so a working smartphone with mobile data is required. An iPad or flip phone won't work for this.",
+    smartphone_yes:'Yes — I have a smartphone with data',
+    smartphone_no:"No — I don't have one right now",
     exp_chip:'Cleaning Experience',
     exp_q:'Do you have professional cleaning experience?',
     exp_note_title:'Important note',
@@ -711,10 +742,11 @@ const T = {
     avail_note:'We need at least <strong>5 days per week</strong> of availability. We work Monday through Sunday. Candidates who are available on Saturdays are strongly preferred — our Saturday clients are a key part of our schedule.',
     mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun',
     days_warn:'We require at least 5 days of availability. Please select more days.',
-    flex_q:'How flexible are you with your schedule if we need you on a different day occasionally?',
-    flex_very:'Very flexible — I can adjust when needed',
-    flex_some:'Somewhat flexible — with enough notice',
-    flex_fixed:'Not very flexible — my schedule is fixed',
+    schedule_confirm_label:'Both our full-time and part-time roles require all 5 days a week. Which can you commit to?',
+    schedule_full:'Full-time — 9:00 AM to 5:30 PM, 5 days a week',
+    schedule_part:'Part-time — 9:00 AM to 2:00 PM, 5 days a week',
+    schedule_no:"I can't commit to 5 days a week",
+    schedule_warn:'Please choose the schedule you can commit to.',
     personal_chip:'Your Information', personal_q:'Tell us about yourself',
     firstname_label:'First Name', lastname_label:'Last Name',
     phone_label:'Phone Number', email_label:'Email Address',
@@ -725,7 +757,7 @@ const T = {
     gender_self:'Prefer to self-describe', gender_notdisclose:'Wish not to disclose',
     err_gender:'Please select your gender.',
     err_firstname:'Please enter your first name.', err_lastname:'Please enter your last name.',
-    err_phone:'Please enter your phone number.',
+    err_phone:'Please enter a valid 10-digit Canadian phone number (e.g. 416-555-1234).',
     err_email:'Please enter a valid email address.', err_area:'Please select your area.',
     scenarios_chip:'How You Work',
     scenarios_q:'A few real scenarios — choose what you\'d actually do',
@@ -761,6 +793,8 @@ const T = {
     sorry_sin:'Unfortunately, we are only able to hire individuals who have legal work authorization in Canada. We hope to hear from you once you have the proper documentation.',
     sorry_physical:'Unfortunately, this role requires full physical capacity for 6–8 hours per day. We\'re not able to accommodate significant physical limitations at this time.',
     sorry_ttc:'This role requires you to travel independently around Toronto. Unfortunately, we can\'t move forward without that ability.',
+    sorry_smartphone:'This role requires a smartphone with a data plan — you check in and out of every job on our app. We can\'t move forward without one, but please apply again once you have a smartphone with data.',
+    sorry_schedule:'This is a full-time role that requires working 5 days a week during our daytime hours. Unfortunately, we\'re not able to move forward if you can\'t commit to that schedule.',
     sorry_default:'Unfortunately, based on your response, we\'re unable to proceed at this time.',
     thanks_title:'Application Received!',
     thanks_body:"Thank you for applying to itsGLO Cleaning. Our team reviews every application personally. If your profile is a strong fit, we'll reach out within a few business days to schedule the next step.",
@@ -772,7 +806,7 @@ const T = {
     recall_line:'When we call you, it will be from <strong>itsGLO Cleaning</strong> — save the name and watch for our call. 📞',
     referral_title:'Know someone great?',
     referral_line:'Good cleaners know good cleaners. Share this link and help a friend find a real job: <strong>careers.itsglocleaning.ca</strong>',
-    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Cleaning experience','Availability','Your information','About you','Final review'],
+    progress_labels:['Getting started','About the role','Work eligibility','Physical requirements','Getting around','Phone & data','Cleaning experience','Availability','Your information','About you','Final review'],
   },
   es: {
     apply_badge:'Contratando Ahora · Toronto',
@@ -815,6 +849,11 @@ const T = {
     ttc_opt1:'Sí — uso el TTC y me manejo bien con Google Maps',
     ttc_opt2:'Sí — tengo mi propio vehículo',
     ttc_opt3:'No — no puedo navegar de forma independiente',
+    phone_chip:'Teléfono y Datos',
+    smartphone_q:'¿Tienes un smartphone con plan de datos?',
+    smartphone_detail:'Registrarás tu entrada y salida en cada trabajo y verás tu horario diario en nuestra app, así que se requiere un smartphone que funcione con datos móviles. Un iPad o un teléfono de tapa no sirven para esto.',
+    smartphone_yes:'Sí — tengo un smartphone con datos',
+    smartphone_no:'No — no tengo uno por ahora',
     exp_chip:'Experiencia en Limpieza',
     exp_q:'¿Tienes experiencia profesional en limpieza?',
     exp_note_title:'Nota importante',
@@ -833,10 +872,11 @@ const T = {
     avail_note:'Necesitamos al menos <strong>5 días por semana</strong> de disponibilidad. Trabajamos de lunes a domingo. Los candidatos disponibles los sábados son fuertemente preferidos — los clientes del sábado son clave en nuestra agenda.',
     mon:'Lun', tue:'Mar', wed:'Mié', thu:'Jue', fri:'Vie', sat:'Sáb', sun:'Dom',
     days_warn:'⚠️ Necesitamos al menos 5 días de disponibilidad. Por favor selecciona más días.',
-    flex_q:'¿Qué tan flexible eres si ocasionalmente necesitamos que trabajes un día diferente?',
-    flex_very:'Muy flexible — puedo ajustarme cuando sea necesario',
-    flex_some:'Algo flexible — con suficiente aviso',
-    flex_fixed:'Poco flexible — mi horario es fijo',
+    schedule_confirm_label:'Tanto nuestro puesto de tiempo completo como el de medio tiempo requieren los 5 días de la semana. ¿A cuál puedes comprometerte?',
+    schedule_full:'Tiempo completo — 9:00 AM a 5:30 PM, 5 días a la semana',
+    schedule_part:'Medio tiempo — 9:00 AM a 2:00 PM, 5 días a la semana',
+    schedule_no:'No puedo comprometerme a 5 días a la semana',
+    schedule_warn:'Por favor elige el horario al que puedes comprometerte.',
     personal_chip:'Tu Información', personal_q:'Cuéntanos sobre ti',
     firstname_label:'Nombre', lastname_label:'Apellido',
     phone_label:'Número de Teléfono', email_label:'Correo Electrónico',
@@ -847,7 +887,7 @@ const T = {
     gender_self:'Prefiero autodescribirme', gender_notdisclose:'Prefiero no indicarlo',
     err_gender:'Por favor selecciona tu género.',
     err_firstname:'Por favor ingresa tu nombre.', err_lastname:'Por favor ingresa tu apellido.',
-    err_phone:'Por favor ingresa tu teléfono.',
+    err_phone:'Ingresa un número de teléfono canadiense válido de 10 dígitos (ej. 416-555-1234).',
     err_email:'Por favor ingresa un correo válido.', err_area:'Por favor selecciona tu zona.',
     scenarios_chip:'Cómo Trabajas',
     scenarios_q:'Algunos escenarios reales — elige lo que harías',
@@ -883,6 +923,8 @@ const T = {
     sorry_sin:'Desafortunadamente, solo podemos contratar a personas con autorización legal de trabajo en Canadá. Esperamos que puedas obtener la documentación adecuada y apliques de nuevo.',
     sorry_physical:'Desafortunadamente, este rol requiere capacidad física completa por 6–8 horas al día. No podemos acomodar limitaciones físicas significativas en este momento.',
     sorry_ttc:'Este rol requiere que te muevas de forma independiente por Toronto. Lamentablemente no podemos continuar sin esa capacidad.',
+    sorry_smartphone:'Este rol requiere un smartphone con plan de datos — registras tu entrada y salida en cada trabajo desde nuestra app. No podemos continuar sin uno, pero por favor aplica de nuevo cuando tengas un smartphone con datos.',
+    sorry_schedule:'Este es un puesto de tiempo completo que requiere trabajar 5 días a la semana en nuestro horario de día. Lamentablemente, no podemos continuar si no puedes comprometerte a ese horario.',
     sorry_default:'Lamentablemente, según tu respuesta, no podemos continuar con tu solicitud en este momento.',
     thanks_title:'¡Solicitud Recibida!',
     thanks_body:'Gracias por aplicar a itsGLO Cleaning. Nuestro equipo revisa cada solicitud personalmente. Si tu perfil es una buena opción, te contactaremos en unos días hábiles para coordinar el siguiente paso.',
@@ -894,7 +936,7 @@ const T = {
     recall_line:'Cuando te llamemos, será de parte de <strong>itsGLO Cleaning</strong> — guarda el nombre y espera nuestra llamada. 📞',
     referral_title:'¿Conoces a alguien excelente?',
     referral_line:'Los buenos limpiadores conocen a otros buenos limpiadores. Comparte este enlace y ayuda a un amigo a encontrar un trabajo de verdad: <strong>careers.itsglocleaning.ca</strong>',
-    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Experiencia','Disponibilidad','Tu información','Sobre ti','Revisión final'],
+    progress_labels:['Comenzando','Sobre el trabajo','Elegibilidad','Requisitos físicos','Movilidad','Teléfono y datos','Experiencia','Disponibilidad','Tu información','Sobre ti','Revisión final'],
   }
 };
 
@@ -916,7 +958,7 @@ const PORTAL_API_BASE = 'https://itsglo-backend.onrender.com/api/v1';
 // Eligibility, physical, getting-around — the knockout steps. Hidden for
 // invited (already-screened) candidates so they go straight to the real
 // questions, mirroring the portal's skip-screening invite.
-const KNOCKOUT_STEPS = [2, 3, 4];
+const KNOCKOUT_STEPS = [2, 3, 4, 5];
 
 // Pull admin-edited question copy and overlay it on the baked-in T dict.
 function loadPortalCopy() {
@@ -1024,9 +1066,9 @@ function prevStep() {
 }
 
 function updateProgress() {
-  // Steps are now: 0-7, 8 (about you), 9 (submit) = 10 positions total
-  const stepNum = typeof currentStep === 'number' ? currentStep : 9;
-  const pct = Math.min(100, Math.round((stepNum / 9) * 100));
+  // Steps: 0 landing … 5 phone+data … 10 (submit) = 11 positions total
+  const stepNum = typeof currentStep === 'number' ? currentStep : 10;
+  const pct = Math.min(100, Math.round((stepNum / 10) * 100));
   document.getElementById('progress-fill').style.width = pct + '%';
   document.getElementById('progress-pct').textContent = pct + '%';
   const labels = t('progress_labels');
@@ -1082,6 +1124,8 @@ const sorryMessages = {
   sin: () => t('sorry_sin'),
   physical: () => t('sorry_physical'),
   ttc: () => t('sorry_ttc'),
+  smartphone: () => t('sorry_smartphone'),
+  schedule: () => t('sorry_schedule'),
 };
 
 function checkGate(field) {
@@ -1105,6 +1149,11 @@ function checkGate(field) {
   if (field === 'ttc') {
     if (!answers.ttc) return;
     if (answers.ttc === 'no') { showSorry('ttc'); return; }
+    nextStep(); return;
+  }
+  if (field === 'smartphone') {
+    if (!answers.smartphone) return;
+    if (answers.smartphone === 'no') { showSorry('smartphone'); return; }
     nextStep(); return;
   }
 }
@@ -1172,12 +1221,29 @@ function checkDays() {
     return;
   }
   document.getElementById('days-warn').style.display = 'none';
+  if (!answers.scheduleCommit) {
+    document.getElementById('schedule-warn').style.display = 'block';
+    return;
+  }
+  if (answers.scheduleCommit === 'no') { showSorry('schedule'); return; }
+  document.getElementById('schedule-warn').style.display = 'none';
   nextStep();
 }
 
 // ═══════════════════════════════════════════
 //  PERSONAL VALIDATION
 // ═══════════════════════════════════════════
+// Mirror the portal's NA-biased E.164 normalizer (apps/sms/normalize.py) so
+// a number that passes here always sends. Accepts a 10-digit number or an
+// 11-digit one led by country-code 1; returns clean +1XXXXXXXXXX, else null.
+// Foreign / malformed numbers (e.g. an 11-digit non-NA number) are rejected
+// at intake instead of silently failing the heads-up SMS in the portal.
+function normalizeNAPhone(raw) {
+  let d = (raw || '').replace(/\D/g, '');
+  if (d.length === 11 && d[0] === '1') d = d.slice(1);
+  return d.length === 10 ? '+1' + d : null;
+}
+
 function validatePersonal() {
   let ok = true;
   const first  = document.getElementById('first-name').value.trim();
@@ -1186,17 +1252,18 @@ function validatePersonal() {
   const email  = document.getElementById('email').value.trim();
   const area   = document.getElementById('area').value;
   const gender = document.getElementById('gender').value;
+  const phoneNorm = normalizeNAPhone(phone);
 
   const toggle = (id, show) => document.getElementById(id).classList.toggle('visible', show);
   toggle('err-first-name', !first); if (!first) ok = false;
   toggle('err-last-name',  !last);  if (!last)  ok = false;
-  toggle('err-phone', !phone);   if (!phone) ok = false;
+  toggle('err-phone', !phoneNorm);   if (!phoneNorm) ok = false;
   toggle('err-email', !email || !email.includes('@')); if (!email || !email.includes('@')) ok = false;
   toggle('err-area',   !area);    if (!area)   ok = false;
   toggle('err-gender', !gender);  if (!gender) ok = false;
 
   if (ok) {
-    answers.fullName = (first + ' ' + last).trim(); answers.phone = phone;
+    answers.fullName = (first + ' ' + last).trim(); answers.phone = phoneNorm;
     answers.email = email;   answers.area  = area;
     answers.gender = gender;
     answers.languages = document.getElementById('languages').value.trim();
@@ -1276,12 +1343,13 @@ async function submitForm() {
     visaType:        answers.visaType,
     physical:        answers.physical,
     ttc:             answers.ttc,
+    smartphone:      answers.smartphone,
     expType:         answers.expType,
     expCompany:      answers.expCompany,
     expCanada:       answers.expCanada,
     expDuration:     answers.expDuration,
     days:            answers.days.join(', '),
-    flexibility:     answers.flexibility,
+    scheduleCommit:  answers.scheduleCommit,
     hoursPerWeek:    answers.hours,
     s1_sickDay:      answers.s1,
     s2_clientComplaint: answers.s2,
