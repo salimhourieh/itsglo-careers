@@ -954,7 +954,7 @@ const _params = new URLSearchParams(location.search);
 const ROLE = (_params.get('role') || 'cleaner-toronto').replace(/[^a-z0-9-]/gi, '') || 'cleaner-toronto';
 const INVITE = (_params.get('invite') || '').trim();   // pre-vetted candidate → skip knockouts
 const SRC = (_params.get('src') || '').slice(0, 64);   // channel attribution (indeed/facebook/…)
-const PORTAL_API_BASE = 'https://itsglo-backend.onrender.com/api/v1';
+const PORTAL_API_BASE = 'https://itsglo-backend-va.onrender.com/api/v1';
 // Eligibility, physical, getting-around — the knockout steps. Hidden for
 // invited (already-screened) candidates so they go straight to the real
 // questions, mirroring the portal's skip-screening invite.
